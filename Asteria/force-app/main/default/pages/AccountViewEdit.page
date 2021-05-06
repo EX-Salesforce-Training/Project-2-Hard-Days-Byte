@@ -1,0 +1,75 @@
+<apex:page controller="AccountAddressesController">
+    
+    <apex:pageBlock title="Account Details">
+        <apex:repeat value="{!Account}" var="a">
+            <apex:pageBlock >
+                <apex:pageBlockSection >
+                    <apex:outputField value="{!a.Name}"/>
+                    <apex:outputField value="{!a.BillingCountry}"/>
+                    <apex:outputField value="{!a.BillingPostalCode}"/>
+                    <apex:outputField value="{!a.BillingState}"/>
+                    <apex:outputField value="{!a.BillingCity}"/>
+                    <apex:outputField value="{!a.BillingStreet}"/>
+                    <apex:outputField value="{!a.BillingLongitude}"/>
+                    <apex:outputField value="{!a.BillingLatitude}"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:repeat>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="Previous Orders">
+      <apex:repeat value="{!PurchaseOrders}" var="o">
+         <apex:pageBlock >
+             <apex:pageBlockSection >
+                 <apex:outputField value="{!o.Name}"/>
+                 <apex:outputField value="{!o.Account__c}"/>
+                 <apex:outputField value="{!o.Inventory__c}"/>
+                 <apex:outputField value="{!o.Inventory_Type__c}"/>
+                 <apex:outputField value="{!o.Inventory_Weight__c}"/>
+                 <apex:outputField value="{!o.Status__c}"/>
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+     </apex:repeat>
+    </apex:pageBlock>
+</apex:page>
+<!--
+   {!Account.Name}
+
+
+
+<apex:pageBlock>
+
+
+
+
+
+                <apex:outputText value="{}" />&nbsp;<br />
+                
+              
+                <apex:outputText value="{!Account}" />
+                
+
+                
+                <apex:outputText value="{!Account.BillingState}" />&nbsp;
+
+                <apex:outputText value="{!Account.BillingPostalCode}" />&nbsp;
+               
+                
+
+                <apex:outputText value="{!Account.BillingCountry}" /><br />
+
+                
+                <apex:commandButton value="Save" action="{!quicksave}" id="saveButton"  />  
+                        
+               
+       
+</apex:pageBlock> 
+
+-->
+<!--    <apex:pageBlock title="Account Summary">
+        
+            Name: {! Account.Name } <br/>
+            <apex:inputField value="{! Account.Name }"/>
+            Account ID: {! Account.ID } <br/>
+            
+    -->

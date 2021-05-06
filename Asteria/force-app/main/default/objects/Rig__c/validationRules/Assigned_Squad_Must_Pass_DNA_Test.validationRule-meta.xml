@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Squad_Must_Pass_DNA_Test</fullName>
+    <active>true</active>
+    <description>Before a Squad can be assigned to a Rig, all associated Crew Members must have verified DNA Test results.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Squad__c,&apos;ALPHA&apos;),ISPICKVAL(Crew_Members__r.Crew_List__c,&apos;ALPHA&apos;),Crew_Members__r.DNA_Test__c=FALSE)</errorConditionFormula>
+    <errorMessage>Before a Squad can be assigned to a Rig, all associated Crew Members must have verified DNA Test results.</errorMessage>
+</ValidationRule>

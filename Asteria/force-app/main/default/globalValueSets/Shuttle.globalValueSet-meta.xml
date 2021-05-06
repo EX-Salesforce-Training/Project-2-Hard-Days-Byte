@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Apollo</fullName>
+        <default>false</default>
+        <label>Apollo</label>
+    </customValue>
+    <customValue>
+        <fullName>Hermes</fullName>
+        <default>false</default>
+        <label>Hermes</label>
+    </customValue>
+    <customValue>
+        <fullName>Pegasus</fullName>
+        <default>false</default>
+        <label>Pegasus</label>
+    </customValue>
+    <description>A list of Shuttles that transport Crews to Mining Sites/the Mothership.</description>
+    <masterLabel>Shuttle</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

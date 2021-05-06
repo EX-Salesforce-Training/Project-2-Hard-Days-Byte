@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Price_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Item_Price__c &gt;= 9999999.00,
+&quot;$&quot; &amp; (TEXT(Item_Price__c / 1000000)) &amp; &quot; MM&quot;,
+&quot;$&quot; &amp; (TEXT(Item_Price__c / 1000)) &amp; &quot; K&quot; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Item Price (Text)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

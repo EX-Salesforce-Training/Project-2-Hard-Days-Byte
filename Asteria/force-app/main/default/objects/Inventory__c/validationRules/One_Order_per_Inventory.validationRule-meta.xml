@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>One_Order_per_Inventory</fullName>
+    <active>true</active>
+    <description>Can&apos;t place duplicate orders for Inventory items.</description>
+    <errorConditionFormula>IF(Number_Of_Orders__c &gt; 1,TRUE,FALSE)</errorConditionFormula>
+    <errorMessage>Can&apos;t place duplicate orders for Inventory items.</errorMessage>
+</ValidationRule>

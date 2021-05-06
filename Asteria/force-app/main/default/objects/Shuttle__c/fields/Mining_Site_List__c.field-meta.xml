@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mining_Site_List__c</fullName>
+    <description>The Mining Sites services by this Shuttle.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Mining Sites services by this Shuttle.</inlineHelpText>
+    <label>Mining Site</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Mining_Site</valueSetName>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

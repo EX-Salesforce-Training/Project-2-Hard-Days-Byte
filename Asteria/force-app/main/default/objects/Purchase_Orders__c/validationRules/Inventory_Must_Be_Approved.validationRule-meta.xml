@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inventory_Must_Be_Approved</fullName>
+    <active>true</active>
+    <description>Inventory items must have Status: Approved before they can be moved into Purchase Orders.</description>
+    <errorConditionFormula>AND(NOT(ISPICKVAL(Inventory__r.Status__c,&apos;Approved&apos;)), Inventory__r.Rejected__c=FALSE)</errorConditionFormula>
+    <errorMessage>Inventory items can&apos;t be purchased until they have been approved.</errorMessage>
+</ValidationRule>

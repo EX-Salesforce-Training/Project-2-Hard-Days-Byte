@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>A-P./Ex. Laser Rifle</fullName>
+        <default>false</default>
+        <label>A-P./Ex. Laser Rifle</label>
+    </customValue>
+    <customValue>
+        <fullName>Atmos-0 Survival Suit</fullName>
+        <default>false</default>
+        <label>Atmos-0 Survival Suit</label>
+    </customValue>
+    <customValue>
+        <fullName>COIL Mining Laser</fullName>
+        <default>false</default>
+        <label>COIL Mining Laser</label>
+    </customValue>
+    <customValue>
+        <fullName>Handheld Tractor Beam</fullName>
+        <default>false</default>
+        <label>Handheld Tractor Beam</label>
+    </customValue>
+    <customValue>
+        <fullName>Hovercart</fullName>
+        <default>false</default>
+        <label>Hovercart</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Rotary Drill Rig</fullName>
+        <default>false</default>
+        <label>Mobile Rotary Drill Rig</label>
+    </customValue>
+    <description>A list of Equipment items.</description>
+    <masterLabel>Equipment</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

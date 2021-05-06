@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment_Type__c</fullName>
+    <description>The type of Equipment that this record refers to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The type of Equipment that this record refers to.</inlineHelpText>
+    <label>Equipment Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Equipment</valueSetName>
+    </valueSet>
+</CustomField>

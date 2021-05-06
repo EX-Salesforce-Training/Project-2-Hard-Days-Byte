@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Crew_Member_ID__c</fullName>
+    <description>Mining/Security Crew Member&apos;s unique ID number.</description>
+    <displayFormat>CM-{000000}</displayFormat>
+    <externalId>false</externalId>
+    <inlineHelpText>Mining/Security Crew Member&apos;s unique ID number.</inlineHelpText>
+    <label>Crew Member ID#</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

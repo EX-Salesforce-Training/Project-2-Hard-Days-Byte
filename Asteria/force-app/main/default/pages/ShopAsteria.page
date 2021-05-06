@@ -1,0 +1,63 @@
+<apex:page Controller="ShopAsteriaController">    
+ 
+    <apex:pageBlock id="Block1" title="Catalogue">        
+       <div class="main">        
+    	<apex:form id="shopForm">                  
+            	<apex:pageBlock title="Items in Inventory:" id="itemBlock">
+                    
+                    <!--This code contains the list of Inventory items available for purchase ('Approved' and no pending orders)-->
+                	<apex:pageBlockTable value="{!InventoryList}" var="Item">                    
+                    	<apex:column title="Item ID:">         
+                                                           
+                            <!--This line creates a link with the Inventory record name; the link goes to the record detail page-->
+                        	<apex:commandLink value="{!Item.Name}" style="font-size:16px" action="/lightning/r/Inventory__c/{!Item.ID}/view" target="_blank"><apex:param name="itemID" value="{!Item.Id}"/></apex:commandLink>                        
+                        	<apex:pageBlockSection columns="2" collapsible="true">
+
+						
+                            <apex:outputText id="itemImgText" value="">
+                                <apex:param assignTo="{!ItemImg}" id="itemImgParam" value="{!Item}"/>
+                            </apex:outputText>
+                                
+                                <script>
+                                    var action = cmp.get("c.getItemImg");
+    								action.setParams({ item : "{!Item}" });
+                                </script>
+                            
+                            <!--This code displays an image and certain details of Inventory items--> 
+                            <apex:image url="{!URLFOR($Resource.ORES,'GIF_Ore.gif')}" width="100" height="100"/>
+                            <apex:outputText value="{!Item.Ore_Type__c}" label="Ore Type" id="oreType"/><br/>
+                            <apex:outputText value="{!Item.Weight__c}" label="Weight(GSU)" id="itemWeight"/><br/>
+                            <apex:outputText value="{!Item.Item_Price_Text__c}" label="Item Price" id="itemPrice"/><br/>                   
+                        	
+                            </apex:pageBlockSection>
+                            
+                            <!--This button redirects to the shopping cart/checkout page-->
+                        	<apex:commandButton value="         Add Item to Order         " action="{!addToCart}" id="Button1" rerender="pb">
+                                <apex:param name="eventId" value="{!Item.id}" assignTo="{!invItem}"/>
+                            </apex:commandButton>
+                            
+                        </apex:column>                  
+                	</apex:pageBlockTable>                               
+            	</apex:pageBlock>                
+    	</apex:form>     
+               
+                <apex:form >
+                <apex:pageBlock >
+                <apex:pageBlockSection columns="1">
+            <!--        <apex:inputField value="Inventory.Name"/>     -->
+                </apex:pageBlockSection>
+                </apex:pageBlock>
+                </apex:form>                                                
+    </div>
+        
+       
+                                     <!-- Harvey attempt   
+                            <apex:actionSupport event="on">
+                            <apex:param assignTo="{!var1}" value="{!Item.Ore_Type__c}"/>
+                            </apex:actionSupport>
+                            <apex:dynamicComponent componentValue="{!ItemImg}"/>
+                            -->
+     
+        <!-- -->
+	</apex:pageBlock>
+</apex:page>

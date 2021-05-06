@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Astyanax (1871)</fullName>
+        <default>false</default>
+        <label>Astyanax (1871)</label>
+    </customValue>
+    <customValue>
+        <fullName>Helicaon (30942)</fullName>
+        <default>false</default>
+        <label>Helicaon (30942)</label>
+    </customValue>
+    <customValue>
+        <fullName>Lykaon (4792)</fullName>
+        <default>false</default>
+        <label>Lykaon (4792)</label>
+    </customValue>
+    <customValue>
+        <fullName>Neleus (136557)</fullName>
+        <default>false</default>
+        <label>Neleus (136557)</label>
+    </customValue>
+    <customValue>
+        <fullName>Palamedes (2456)</fullName>
+        <default>false</default>
+        <label>Palamedes (2456)</label>
+    </customValue>
+    <customValue>
+        <fullName>Yperion (184280)</fullName>
+        <default>false</default>
+        <label>Yperion (184280)</label>
+    </customValue>
+    <description>A list of asteroids designated as Mining Sites.</description>
+    <masterLabel>Mining Site</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

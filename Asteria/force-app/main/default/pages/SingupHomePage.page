@@ -1,0 +1,27 @@
+<!-- ////////////////////////////////////////////////////////////////////////
+//
+// Name: Lead Creation 
+// Author: Moises Acevedo, Revature Associate
+// Created: 05/1/2021
+// Description: A VSF page that allows the customer to input their data and create a Lead Record. 
+//
+//////////////////////////////////////////////////////////////////////// -->
+
+<apex:page standardController="Lead" extensions="LeadCreation" showChat="false"  showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:sectionHeader title="Become a Member of Asteria"></apex:sectionHeader>
+        <apex:pageBlock title="Alien or Human, we can help">
+            <apex:pageBlockSection title="Sign up here to Join" columns="2" collapsible="false">
+                <apex:inputField id="Fname" value="{!Lead.FirstName}"></apex:inputField>
+                <apex:inputField id="company" value="{!Lead.Company}"></apex:inputField>
+                <apex:inputField id="Lname" value="{!Lead.LastName}"></apex:inputField>
+                <apex:inputField id="email" value="{!Lead.Email}"></apex:inputField>
+                <apex:inputField id="phone" value="{!Lead.Phone}"></apex:inputField>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" 	value="Save"></apex:commandButton>
+                <apex:commandButton action="{!cancel}"	value="Cancel"></apex:commandButton>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

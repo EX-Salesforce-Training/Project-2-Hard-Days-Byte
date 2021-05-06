@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weight_Rejected__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>The weight of a Rejected item is still recorded in this field; however, it will not be included in the Inventory summary fields.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The weight of a Rejected item is still recorded in this field; however, it will not be included in the Inventory summary fields.</inlineHelpText>
+    <label>Weight: Rejected</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

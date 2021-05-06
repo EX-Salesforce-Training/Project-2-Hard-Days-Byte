@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Squad__c</fullName>
+    <description>The Squad currently assigned to this Rig.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Squad currently assigned to this Rig.</inlineHelpText>
+    <label>Squad</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Squad</valueSetName>
+    </valueSet>
+</CustomField>

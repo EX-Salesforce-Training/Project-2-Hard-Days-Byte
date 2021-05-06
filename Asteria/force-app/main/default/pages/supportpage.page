@@ -1,0 +1,111 @@
+<apex:page standardController="Case" extensions="AsteriaSupportExtension" showHeader="false">
+    <div style = "background-color:rgba(195, 191, 191, 0.63)">
+    <apex:pageBlock id="FAQblock">
+        
+        <apex:pageBlockSection id="pgBlockSectionFAQ" title="Frequently Asked Questions" collapsible="false" columns="1" showHeader="false">
+            <div style="text-align:center; font-weight:bold; font-size:3rem">Support/Help</div>
+            <div style="font-weight:bold ; font-size:2rem ; background-color:rgb(105, 71, 176) ; color:white ; padding-left:10px">Frequently Asked Questions</div>
+            <script>
+            function show(obj)
+            {
+                if(document.getElementById(obj).style.display == 'none')
+                {
+                    document.getElementById(obj).style.display = 'block';
+                }
+                else
+                    document.getElementById(obj).style.display = 'none';
+            }
+            </script>
+             <div style = "background-color:rgb(230, 205, 240)">
+            <div>
+                <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">How is shipping handled?</a>
+                <div id="expand1" style="font-size:1.5em; display:none" >
+                    We jettison enormous blocks of raw ore to Earth to your approximate location, 
+                    our AI calculates how to make it land near you (within 10 km radius), 
+                    it hardly ever causes catastrophic damage.
+                </div>
+            </div>
+            <br></br>
+        <div>
+            <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">Can we purchase refined materials?</a>
+            <div id="expand2" style="font-size:1.5em; display:none">
+                Mineral refining is not currently offered by Asteria; 
+                we're working on a line of drones that will refine ores with high-powered lasers, 
+                but they keep murdering their handlers.
+            </div>
+        </div>
+        <br></br>
+    <div>
+        <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">Is clone labor ethical?</a>
+        <div id="expand3" style="font-size:1.5em; display:none">
+            Our clones are organic, non-GMO, and 100% vegan. Here at Asteria, the ethicality is not a concern
+            since the free will is never programmed into the clones. 
+        </div>
+    </div>
+    <br></br>
+<div>
+    <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">How long does it usually take for my order to arrive?</a>
+    <div id="expand4" style="font-size:1.5em; display:none">
+        There are many factors that can influence when your order arrives at your location. Depending on how far an assigned clone has to fly for the specific
+        ore requested, along with how abundantly available the ore is in each asteroid, it usually takes 5 to 10 business days for you order to arrive. 
+    </div>
+</div>
+<br></br>
+<div>
+    <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">Are there other shipping options?</a>
+    <div id="expand5" style="font-size:1.5em; display:none">
+        Currently, we offer only one shipping option: jettison the enormous blocks of ore to your approximate location on earth. 
+    </div>
+</div>
+<br></br>
+<div>
+    <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">Where are you located?</a>
+    <div id="expand6" style="font-size:1.5em; display:none">
+        Our headquarters are location on planet Globulon, in Sector 8C in the Milky Way galaxy. However, our clones can be found everywhere throughout the galaxy mining asteroids.
+    </div>
+</div>
+<br></br>
+<div>
+    <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">Can I make changes to an order I already placed?</a>
+    <div id="expand7" style="font-size:1.5em; display:none">
+        For the most part, no. Once an order is placed, clones are immediately assigned to the order and start searching for asteroids with the appropriate
+        ore. However, order cancellations done before any clones are assigned will go through with no charge. If you have any issues with the ore you get, 
+        please do not hesitate to reach out to us.
+    </div>
+</div>
+<br></br>
+<div>
+    <a href="javascript:;" style="font-size:2.0em" onclick="show(this.nextSibling.nextSibling.id);">My order never arrived. What should I do?</a>
+    <div id="expand8" style="font-size:1.5em; display:none">
+        You should first submit a ticket to see the status of your order. The clones may occasionally turn defective (and sometimes rogue) so some of 
+        the ore in your order could be taking a long time to arrive. Do not worry though, one way or another we will make sure you get your order to your approximate location. 
+    </div>
+</div>
+</div>
+</apex:pageBlockSection>
+</apex:pageBlock>
+<apex:form id="myForm">
+    <apex:sectionHeader subtitle="{!Case.CaseNumber}"/>
+    <apex:pageBlock id="pgBlock">
+        <div style="font-weight:bold ; font-size:2rem ; background-color:rgb(105, 71, 176) ; color:white ; padding-left:10px">Can't find what you need? Submit a ticket!</div>
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Submit Ticket" action="{!Save}" />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection id="pgBlockSectionAcctInfo" showHeader="false" collapsible="false" columns="1" >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Your Full Name</apex:outputLabel>                   
+                <apex:inputField id="caseContact" value="{!case.ContactId}" />
+            </apex:pageBlockSectionItem>               
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Subject</apex:outputLabel>                   
+                <apex:inputText id="caseSubject" value="{!case.Subject}" size="75" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Issue/Concern</apex:outputLabel>                   
+                <apex:inputTextArea id="caseDescription" value="{!case.Description}" cols="75" rows="6" />
+            </apex:pageBlockSectionItem>                
+        </apex:pageBlockSection>           
+    </apex:pageBlock>       
+</apex:form>
+</div>
+</apex:page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>ALPHA</fullName>
+        <default>false</default>
+        <label>ALPHA</label>
+    </customValue>
+    <customValue>
+        <fullName>BETA</fullName>
+        <default>false</default>
+        <label>BETA</label>
+    </customValue>
+    <customValue>
+        <fullName>GAMMA</fullName>
+        <default>false</default>
+        <label>GAMMA</label>
+    </customValue>
+    <customValue>
+        <fullName>DELTA</fullName>
+        <default>false</default>
+        <label>DELTA</label>
+    </customValue>
+    <customValue>
+        <fullName>EPSILON</fullName>
+        <default>false</default>
+        <label>EPSILON</label>
+    </customValue>
+    <customValue>
+        <fullName>ZETA</fullName>
+        <default>false</default>
+        <label>ZETA</label>
+    </customValue>
+    <description>A list of Squads that Crew Members can be assigned to.</description>
+    <masterLabel>Squad</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

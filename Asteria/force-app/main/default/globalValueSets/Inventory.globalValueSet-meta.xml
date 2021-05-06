@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Diamond</fullName>
+        <default>false</default>
+        <label>Diamond</label>
+    </customValue>
+    <customValue>
+        <fullName>Gold</fullName>
+        <default>false</default>
+        <label>Gold</label>
+    </customValue>
+    <customValue>
+        <fullName>Iridium</fullName>
+        <default>false</default>
+        <label>Iridium</label>
+    </customValue>
+    <customValue>
+        <fullName>Palladium</fullName>
+        <default>false</default>
+        <label>Palladium</label>
+    </customValue>
+    <customValue>
+        <fullName>Platinum</fullName>
+        <default>false</default>
+        <label>Platinum</label>
+    </customValue>
+    <customValue>
+        <fullName>Rhodium</fullName>
+        <default>false</default>
+        <label>Rhodium</label>
+    </customValue>
+    <customValue>
+        <fullName>Silver</fullName>
+        <default>false</default>
+        <label>Silver</label>
+    </customValue>
+    <description>A list of ores contained in Inventory.</description>
+    <masterLabel>Inventory</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

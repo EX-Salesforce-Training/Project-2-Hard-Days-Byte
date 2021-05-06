@@ -1,0 +1,20 @@
+<apex:page controller="PurchaseOrderCheckoutController">
+    <h1>Your Shopping Cart</h1>
+    <apex:form>
+        <apex:pageBlock title="Order Details">
+            <apex:repeat value="{!PurchaseOrders}" var="o">
+                <apex:pageBlock >
+                    <apex:pageBlockSection>
+                        <apex:outputField value="{!o.Name}"/>
+                        <apex:outputField value="{!o.Account__c}"/>
+                        <apex:outputField value="{!o.Inventory__c}"/>
+                        <apex:outputField value="{!o.Inventory_Type__c}"/>
+                        <apex:outputField value="{!o.Inventory_Weight__c}"/>
+                        <apex:outputField value="{!o.Status__c}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:repeat>
+            <apex:commandButton action="{!submitOrder}" value="Submit Orders"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

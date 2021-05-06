@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejected_Inventory_Cannot_be_Purchased</fullName>
+    <active>true</active>
+    <description>Inventory items with Rejected status cannot be purchased.</description>
+    <errorConditionFormula>Inventory__r.Rejected__c=TRUE</errorConditionFormula>
+    <errorMessage>Inventory items with Rejected status cannot be purchased.</errorMessage>
+</ValidationRule>

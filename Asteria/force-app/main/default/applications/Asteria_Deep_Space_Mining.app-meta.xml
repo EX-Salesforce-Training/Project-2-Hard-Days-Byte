@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#FFFFFF</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Asteria: Deep Space Mining facilitates the extraction of metals, minerals, and rare-earth elements from asteroids within the Jupiter orbital region.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Asteria: Deep Space Mining</label>
+    <navType>Standard</navType>
+    <tabs>Shuttle__c</tabs>
+    <tabs>Rig__c</tabs>
+    <tabs>Equipment__c</tabs>
+    <tabs>Crew_Members__c</tabs>
+    <tabs>Inventory__c</tabs>
+    <tabs>Purchase_Orders__c</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-ProcessInstanceWorkitem</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Asteria_Deep_Space_Mining_Co_UtilityBar</utilityBar>
+</CustomApplication>
