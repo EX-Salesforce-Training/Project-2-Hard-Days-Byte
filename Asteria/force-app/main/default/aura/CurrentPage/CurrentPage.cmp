@@ -1,0 +1,36 @@
+<aura:component access="global">
+    <aura:attribute name="currentPage" type="String" />
+    <aura:if isTrue="{!v.currentPage == 'Landing'}">
+    	<!-- Add Landing Page Here -->
+        <aura:set  attribute="else">
+        	<aura:if isTrue="{!v.currentPage == 'Register'}">
+                <!-- Add Register Page Here -->
+        		<aura:set  attribute="else">
+        			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
+    					<!-- Add Homepage Page Here -->
+        				<aura:set  attribute="else">
+        					<aura:if isTrue="{!v.currentPage == 'Account'}">
+    							<!-- Add Account Page Here -->
+        						<aura:set  attribute="else">
+        							<aura:if isTrue="{!v.currentPage == 'Lead'}">
+    									<!-- Add Lead Page Here -->
+        								<aura:set  attribute="else">
+        									<aura:if isTrue="{!v.currentPage == 'Shop'}">
+    											<!-- Add Shop Page Here -->
+        										<aura:set  attribute="else">
+        											<aura:if isTrue="{!v.currentPage == 'Support'}">
+    													<!-- Add Support Page Here -->
+    												</aura:if>
+        										</aura:set>
+    										</aura:if>
+        								</aura:set>
+    								</aura:if>
+        						</aura:set>
+    						</aura:if>
+        				</aura:set>
+    				</aura:if>
+        		</aura:set>
+    		</aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>
