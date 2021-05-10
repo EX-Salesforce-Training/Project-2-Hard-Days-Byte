@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="title" type="String"/>
+	<div class="cmpWrapper">
+    	<h2>{!v.title}</h2>
+        {!v.body}
+    </div>    
+</aura:component>
