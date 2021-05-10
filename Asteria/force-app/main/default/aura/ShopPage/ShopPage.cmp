@@ -1,0 +1,13 @@
+<aura:component >
+	<section>
+    	<article>
+            <c:FeaturedItems />
+        </article>
+        <aside>
+            <c:PurchaseOrder type="Cart" />
+        </aside>
+    </section>
+    <section>
+        <c:InventoryList/>
+    </section>
+</aura:component>

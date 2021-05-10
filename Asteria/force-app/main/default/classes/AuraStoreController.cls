@@ -1,9 +1,9 @@
-public class AuraStoreController {
+public without sharing class AuraStoreController {
     
     //return inventoryList based off no orders
     @AuraEnabled
-    public List<Inventory__c> getInventoryList(){
-    	List<Inventory__c> availableInventoryList = [SELECT Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
+    public static List<Inventory__c> getInventoryList(){
+    	List<Inventory__c> availableInventoryList = [SELECT Mining_Site_List__c, Mothership__c, Ore_Type__c, Weight__c, Item_Price_Text__c 
                                                  FROM Inventory__c 
                                                  WHERE Status__c='Approved' 
                                                  AND Number_of_Orders__c=0 
@@ -43,6 +43,9 @@ public class AuraStoreController {
         }
         return ordersByType;             
     }
+    
+    //get all pictures from Single Item
+
     
     //returns id of current User
     private static Id getAccountID(){

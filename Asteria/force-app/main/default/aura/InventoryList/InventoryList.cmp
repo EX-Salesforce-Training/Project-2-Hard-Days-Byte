@@ -1,0 +1,9 @@
+<aura:component controller="AuraStoreController" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="inventory" type="List"/>
+    <div style="display: flex; flex-wrap: wrap;">
+    	<aura:iteration items="{!v.inventory}" var="item">
+       		<c:ProductCard item="{!item}"/>
+    	</aura:iteration>
+    </div>
+</aura:component>

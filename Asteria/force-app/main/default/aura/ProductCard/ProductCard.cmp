@@ -1,0 +1,14 @@
+<aura:component controller="AuraStoreController" access="global">
+    <aura:attribute name="item" type="Map"/>
+	<div style="width: 25%;">
+        <!-- Find Dynamic way to attach images -->
+        <img src="{!$Resource.ORES + '/' + v.item.Ore_Type__c + '_Ore.png'}" style="width: 50%;"/>
+        <h3>{!v.item.Ore_Type__c}</h3>
+        <ul>
+        	<li>Weight: {!v.item.Weight__c}</li>
+            <li>Item Price: {!v.item.Item_Price_Text__c}</li>
+            <li>Mining Site: {!v.item.Mining_Site_List__c}</li>
+            <li>Mothership: M51</li>
+        </ul>
+    </div>
+</aura:component>
