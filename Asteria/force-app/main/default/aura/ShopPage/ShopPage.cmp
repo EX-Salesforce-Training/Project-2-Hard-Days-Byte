@@ -1,13 +1,19 @@
 <aura:component >
-	<section>
-    	<article>
-            <c:FeaturedItems />
+	<section style="display:flex">
+    	<article style="flex-grow:1; margin:10px">
+            <c:ComponentWrapper title="Feature Items">
+            	<c:FeaturedItems />
+            </c:ComponentWrapper>
         </article>
-        <aside>
-            <c:PurchaseOrder type="Cart" />
+        <aside style="width: 34%; min-width: 350px; margin:10px">
+            <c:ComponentWrapper title="Cart">
+            	<c:PurchaseOrder type="Cart" />
+            </c:ComponentWrapper>
         </aside>
     </section>
-    <section>
-        <c:InventoryList/>
+    <section style="margin:10px;">
+        <c:ComponentWrapper title="Inventory" >
+        	<c:InventoryList/>
+        </c:ComponentWrapper>
     </section>
 </aura:component>

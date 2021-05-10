@@ -1,5 +1,5 @@
 <aura:component access="global">
-    <aura:attribute name="currentPage" type="String" default="Shop" /> 
+    <aura:attribute name="currentPage" type="String" default="Shop" />
 	<header>
         <!-- header and navbar go here -->
         HEADER GOES HERE
