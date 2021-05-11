@@ -1,7 +1,78 @@
 @font-face {
-    font-family:'Syncopate';
+    font-family:"Syncopate";
     src: url(/resource/SyncopateRegular);
+}
+@font-face {
+    font-family:"SyncopateBold";
+    src: url(/resource/SyncopateBold);
+}
+@font-face {
+    font-family:"Quicksand";
+    src: url(/resource/QuicksandRegular);
+}
+@font-face {
+    font-family:"QuicksandLight";
+    src: url(/resource/QuicksandLight);
+}
+@font-face {
+    font-family:"QuicksandMedium";
+    src: url(/resource/QuicksandMedium);
+}
+@font-face {
+    font-family:"QuicksandSemi";
+    src: url(/resource/QuicksandSemi);
+}
+@font-face {
+    font-family:"QuicksandBold";
+    src: url(/resource/QuicksandBold);
 }
 
 .THIS {
+    font-family:"QuicksandMedium";
+    font-size: 18px;
+}
+.THIS h1, .THIS h2, .THIS h3{
+    font-family:"SyncopateBold";
+}
+
+.THIS h4, .THIS h5 {
+    font-family:"QuicksandBold";
+}
+
+.THIS h6 {
+    font-family: "QuicksandSemi";
+}
+
+.THIS p {
+    font-family: "QuicksandMedium";
+}
+
+.THIS h1 {
+    font-size: 48px;
+}
+
+.THIS h2 {
+    font-size: 40px;
+}
+
+.THIS h3 {
+    font-size: 35px;
+}
+
+#main.THIS {
+    padding:20px;
+}
+
+@media screen and (max-width:1000){
+    .THIS h1 {
+    font-size: 48px;
+}
+
+.THIS h2 {
+    font-size: 35px;
+}
+
+.THIS h3 {
+    font-size: 22px;
+}
 }
