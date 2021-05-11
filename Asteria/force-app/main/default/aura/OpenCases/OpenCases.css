@@ -1,0 +1,15 @@
+.THIS .grid {
+    padding:5px;
+    display:inline-block;
+    margin-bottom:20px;
+}
+.THIS .gridLeft {
+    float:left;
+    margin-right:20px;
+}
+.THIS .gridRight {
+    float:left;
+}
+.THIS .fieldLabel {
+    font-weight:bold;
+}

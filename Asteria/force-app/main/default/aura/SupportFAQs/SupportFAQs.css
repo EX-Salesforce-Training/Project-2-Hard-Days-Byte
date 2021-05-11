@@ -1,0 +1,17 @@
+.THIS .grid {
+    padding:5px;
+    display:inline-block;
+    max-width:1300px;
+    margin-bottom:20px;
+}
+.THIS .gridLeft {
+    float:left;
+    margin-right:20px;
+}
+.THIS .gridRight {
+    max-width:90%;
+    float:left;
+}
+.THIS .fieldLabel {
+    font-weight:bold;
+}

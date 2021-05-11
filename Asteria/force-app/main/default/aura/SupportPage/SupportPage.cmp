@@ -1,0 +1,20 @@
+<aura:component >
+	<section style="display:flex;">
+    	<article style="flex-grow:1;margin:10px;">
+        	<c:ComponentWrapper title="Frequently Asked Questions">
+                <c:SupportFAQs />
+            </c:ComponentWrapper>
+        </article>
+        <aside style="width:34%;min-width:350px;margin:10px;">
+            <c:ComponentWrapper title="Asteria Chat™">
+                ///
+            </c:ComponentWrapper>
+        	<c:ComponentWrapper title="Open Cases">
+                <c:OpenCases />
+            </c:ComponentWrapper>
+            <c:ComponentWrapper title="Question still not answered?">
+                //
+            </c:ComponentWrapper>
+        </aside>
+    </section>
+</aura:component>
