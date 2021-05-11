@@ -3,10 +3,10 @@ public without sharing class AuraStoreController {
     //return inventoryList based off no orders
     @AuraEnabled
     public static List<Inventory__c> getInventoryList(){
-    	List<Inventory__c> availableInventoryList = [SELECT Mining_Site_List__c, Mothership__c, Ore_Type__c, Weight__c, Item_Price_Text__c 
+    	List<Inventory__c> availableInventoryList = [SELECT Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
                                                  FROM Inventory__c 
                                                  WHERE Status__c='Approved' 
-                                                 AND Number_of_Orders__c=0 
+                                                 AND Number_of_Orders__c = 0 
                                                  ORDER BY Item_Price__c 
                                                  ASC];
     	return availableInventoryList;
@@ -30,7 +30,7 @@ public without sharing class AuraStoreController {
     @AuraEnabled
     public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(String orderType){
         Id userAcct = getAccountID();
-        String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE ('+ orderType +') AND Account__c = '+ userAcct;
+        String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE '+ orderType +' AND Account__c = \'' + userAcct + '\'';
         List<Purchase_Orders__c> queryOrders = Database.query(queryTemplate);
         Map<String, List<Purchase_Orders__c>> ordersByType = new Map<String, List<Purchase_Orders__c>>();
         for(Purchase_Orders__c order:queryOrders){
@@ -48,6 +48,7 @@ public without sharing class AuraStoreController {
 
     
     //returns id of current User
+    @testVisible
     private static Id getAccountID(){
         Id userId = UserInfo.getUserId();
         Id userAcct = [SELECT accountId FROM User WHERE id=:userId].accountId;

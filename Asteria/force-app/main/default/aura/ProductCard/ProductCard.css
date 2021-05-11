@@ -1,0 +1,12 @@
+.THIS.productCard {
+    width: 25%;
+}
+
+.THIS.productCard img {
+    width: 50%;
+}
+
+.THIS.productCard h2 {
+    font-size: 18px;
+    font-family: 'Syncopate';
+}

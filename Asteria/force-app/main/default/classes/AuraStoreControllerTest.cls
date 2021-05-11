@@ -1,3 +1,147 @@
+@isTest
 public class AuraStoreControllerTest {
+    
 
+    @TestSetup
+    static void testSetup(){
+        
+        List<Inventory__c> testInventory = new List<Inventory__c>();
+        
+        for(Integer i = 0;  i < 50; i++){
+            Inventory__c testSingle = new Inventory__c();
+            if(i < 25){
+                testSingle.Status__c = 'New';
+                testSingle.Mining_Site_List__c = 'Astyanax (1871)';
+                testSingle.Ore_Type__c = 'Gold';
+            	testSingle.Weight__c = 2.5;
+                testInventory.add(testSingle);
+            }else{
+                testSingle.Status__c = 'Approved';
+                testSingle.Mining_Site_List__c = 'Astyanax (1871)';
+                testSingle.Ore_Type__c = 'Gold';
+                testSingle.Weight__c = 2.5;
+                testInventory.add(testSingle);
+            }
+        }
+        
+        Database.insert(testInventory);
+
+        Account partnerAccount = new Account();
+        partnerAccount.Name ='partner';
+        
+        Database.insert(partnerAccount);
+        
+        partnerAccount.isPartner = true;
+        
+        Database.update(partnerAccount);
+        
+        Contact partnerContact = new Contact();
+        partnerContact.LastName = 'test';
+        partnerContact.AccountId = partnerAccount.Id;
+        
+        Database.insert(partnerContact);
+        
+        Id partnerProfileId = [SELECT id FROM Profile WHERE name='Asteria Partner' Limit 1].id;
+        Id partnerRoleId = [Select Id From UserRole Where PortalType = 'None' Limit 1].id;
+        
+        User partnerUser = new User(
+            ProfileId = partnerProfileId,
+            Username = System.now().millisecond() + 'test2@test.com',
+            Alias = 'Hath',
+            Email='Hath.Annaway@mgail.com',
+            EmailEncodingKey='UTF-8',
+            Firstname='Hath',
+            Lastname='Annaway',
+            LanguageLocaleKey='en_US',
+            LocaleSidKey='en_US',
+            TimeZoneSidKey='America/Chicago',
+            ContactId = partnerContact.id
+        );
+        
+        Database.insert(partnerUser);
+
+    }
+    @isTest
+    static void getInventoryReturnsInventory(){
+       
+       List<Inventory__c> approvedItems = AuraStoreController.getInventoryList();
+        System.assertEquals(25, approvedItems.size());
+        for(Inventory__c item:approvedItems){
+            System.assertEquals('Approved', item.status__c);
+        }
+        
+    }
+    
+    @isTest 
+    static void getAccountReturnsAccount(){
+		Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'].Id;
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        System.runAs(partnerUser){
+           Id partnerAccountId = AuraStoreController.getAccountId();
+           System.assertEquals(accountId, partnerAccountId);
+        }  
+    }
+    
+    @isTest
+    static void addInventoryAddsToCart(){
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'].Id;
+        List<Inventory__c> inventoryList = [SELECT id FROM Inventory__C WHERE status__c = 'Approved'];
+        List<Id> InventoryToAdd = new List<Id>();
+        
+        for(Inventory__c item:inventoryList){
+             InventoryToAdd.add(item.id);
+       	}
+        
+        System.runAs(partnerUser){
+        	auraStoreController.addInventoryListToCart(inventoryToAdd);
+            List<Purchase_Orders__c> newOrders = [SELECT id, name FROM Purchase_Orders__c WHERE Account__c=:accountId];
+        	System.assertEquals(25, newOrders.size());
+        }
+        
+        
+    }
+    
+    @isTest
+    static void getPurchaseOrdersByTypeTest(){
+        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'].Id;
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        List<Inventory__c> inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved'];
+        List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
+        for(Integer i = 0; i < 25; i++){
+        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
+            if(i < 8){
+                newOrder.status__c = 'New';
+            }
+            else if(i < 16){
+                newOrder.status__c = 'Pending';
+            }else{
+                newOrder.status__c = 'Approved';
+            }
+            orderList.add(newOrder);
+        }
+        Database.insert(orderList);
+        
+        System.runAs(partnerUser){
+            Map<String, List<Purchase_Orders__c>> newOrders = auraStoreController.getPurchaseOrdersByType('Status__c = \'New\'');
+            Map<String, List<Purchase_Orders__c>> pendingOrders = auraStoreController.getPurchaseOrdersByType('Status__c = \'Pending\'');
+        	Map<String, List<Purchase_Orders__c>> approvedOrders = auraStoreController.getPurchaseOrdersByType('Status__C = \'Approved\'');
+            Map<String, List<Purchase_Orders__c>> newAndPendingOrders = auraStoreController.getPurchaseOrdersByType('Status__c IN (\'New\', \'Pending\')');
+        	Map<String, List<Purchase_Orders__c>> PendingAndApprovedOrders = auraStoreController.getPurchaseOrdersByType('Status__c IN (\'Pending\',\'Approved\')');
+            
+            System.assertEquals(1, newOrders.size());
+            System.assertEquals(8, newOrders.get('New').size());
+            System.assertEquals(1, pendingOrders.size());
+            System.assertEquals(8, pendingOrders.get('Pending').size());
+            System.assertEquals(1, approvedOrders.size());
+            System.assertEquals(9, approvedOrders.get('Approved').size());
+            System.assertEquals(2, newAndPendingOrders.size());
+            System.assertEquals(8, newAndPendingOrders.get('New').size());
+			System.assertEquals(8, newAndPendingOrders.get('Pending').size());
+			System.assertEquals(2, pendingAndApprovedOrders.size());
+			System.assertEquals(8, pendingAndApprovedOrders.get('Pending').size());
+            System.assertEquals(9, pendingAndApprovedOrders.get('Approved').size());            
+        }
+    }
+    
 }
