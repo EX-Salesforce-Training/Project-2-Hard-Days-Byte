@@ -39,7 +39,7 @@
         console.log(shoppingList);
         const action = event.getParam('action');
         const row = event.getParam('row');
-        console.log(row.Id);
+        if(action.Name === 'Delete'){
         const filteredList = shoppingList.filter(inv => inv.Id !== row.Id);
         component.set('v.shoppingList', filteredList);
         let toastEvent = $A.get("e.force:showToast");
@@ -49,16 +49,30 @@
             "message":"Item Removed From Shopping Cart"
         });
         toastEvent.fire();
+        }
     },
     
     saveInventory : function(component, event, helper){
-        const cartIds = component.get("v.shoppingList").map(inv=>inv.id);
+        let shoppingList = component.get("v.shoppingList");
+        const cartIds = component.get("v.shoppingList").map(inv=>inv.Id);
         const newOrder = component.get("c.addInventoryListToCart");
         newOrder.setParams({"inventoryList":cartIds});
         
-        newOrder.setCallback(function(response){
-        	                     
+        newOrder.setCallback(this, function(response){
+            const state = response.getState();
+            console.log(state);
+            if(state === "SUCCESS"){
+                const outOfStock = response.getReturnValue();
+                shoppingList = shoppingList.filter((inv, idx) => outOfStock.includes(idx));
+                shoppingList.forEach(inv => {
+                    inv.iconName = 'utility:error';
+                	inv.buttonName = 'Error';
+                })
+                component.set("v.shoppingList", shoppingList);
+                    const updateInventory = $A.get('e.c:UpdateInventory');
+                updateInventory.fire();
+            }
         })
-        
+        $A.enqueueAction(newOrder);
     }
 })

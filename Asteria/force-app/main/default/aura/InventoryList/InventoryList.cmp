@@ -1,5 +1,6 @@
 <aura:component controller="AuraStoreController" access="global">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:UpdateInventory" action="{!c.doInit}" />
     <aura:attribute name="inventory" type="List"/>
     <div>
     	<aura:iteration items="{!v.inventory}" var="item">

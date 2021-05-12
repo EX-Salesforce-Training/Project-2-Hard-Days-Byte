@@ -59,7 +59,6 @@ public class AuraStoreControllerTest {
         );
         
         Database.insert(partnerUser);
-
     }
     @isTest
     static void getInventoryReturnsInventory(){
@@ -86,6 +85,14 @@ public class AuraStoreControllerTest {
     static void addInventoryAddsToCart(){
         User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
         Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'Limit 1].Id;
+        List<Inventory__c> addPurchaseOrder = [SELECT id, Ore_Type__c FROM Inventory__c WHERE status__c = 'Approved'];
+        List<Purchase_Orders__c> OrdersToAdd = new List<Purchase_Orders__c>();
+        for(Integer i = 0; i < addPurchaseOrder.size(); i++){
+            if(Math.mod(i, 2) != 0){
+            OrdersToAdd.add(new Purchase_Orders__c(Account__c = accountId, Inventory__c=addPurchaseOrder[i].Id, status__c = 'New'));
+            }
+        }
+        insert OrdersToAdd;
         List<Inventory__c> inventoryList = [SELECT id FROM Inventory__C WHERE status__c = 'Approved'];
         List<Id> InventoryToAdd = new List<Id>();
         
@@ -95,12 +102,16 @@ public class AuraStoreControllerTest {
 
         System.runAs(partnerUser){
             Test.startTest();
-        	auraStoreController.addInventoryListToCart(inventoryToAdd);
+        	List<Integer> outOfStock = auraStoreController.addInventoryListToCart(inventoryToAdd);
             Test.stopTest();
-            List<Purchase_Orders__c> allOrders = [SELECT id, Name FROM Purchase_Orders__c];
             List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId];
         	system.debug(newOrders);
-            system.assertEquals(25, newOrders.size());
+            system.assertEquals(12, newOrders.size());
+            system.assertEquals(12, outOfStock.size());
+            
+            for(Integer i : outOfStock){
+                system.assert(Math.mod(i, 2) != 0);
+            }
         }
         
         
@@ -127,24 +138,13 @@ public class AuraStoreControllerTest {
         Database.insert(orderList);
         
         System.runAs(partnerUser){
-            Map<String, List<Purchase_Orders__c>> newOrders = auraStoreController.getPurchaseOrdersByType('Status__c = \'New\'');
-            Map<String, List<Purchase_Orders__c>> pendingOrders = auraStoreController.getPurchaseOrdersByType('Status__c = \'Pending\'');
-        	Map<String, List<Purchase_Orders__c>> approvedOrders = auraStoreController.getPurchaseOrdersByType('Status__C = \'Approved\'');
-            Map<String, List<Purchase_Orders__c>> newAndPendingOrders = auraStoreController.getPurchaseOrdersByType('Status__c IN (\'New\', \'Pending\')');
-        	Map<String, List<Purchase_Orders__c>> PendingAndApprovedOrders = auraStoreController.getPurchaseOrdersByType('Status__c IN (\'Pending\',\'Approved\')');
+            List<Purchase_Orders__c> newOrders = auraStoreController.getPurchaseOrdersByType().get('New');
+            List<Purchase_Orders__c> pendingOrders = auraStoreController.getPurchaseOrdersByType().get('Pending');
+        	List<Purchase_Orders__c> approvedOrders = auraStoreController.getPurchaseOrdersByType().get('Approved');
             
-            System.assertEquals(1, newOrders.size());
-            System.assertEquals(8, newOrders.get('New').size());
-            System.assertEquals(1, pendingOrders.size());
-            System.assertEquals(8, pendingOrders.get('Pending').size());
-            System.assertEquals(1, approvedOrders.size());
-            System.assertEquals(9, approvedOrders.get('Approved').size());
-            System.assertEquals(2, newAndPendingOrders.size());
-            System.assertEquals(8, newAndPendingOrders.get('New').size());
-			System.assertEquals(8, newAndPendingOrders.get('Pending').size());
-			System.assertEquals(2, pendingAndApprovedOrders.size());
-			System.assertEquals(8, pendingAndApprovedOrders.get('Pending').size());
-            System.assertEquals(9, pendingAndApprovedOrders.get('Approved').size());            
+            System.assertEquals(8, newOrders.size());
+            System.assertEquals(8, pendingOrders.size());
+            System.assertEquals(9, approvedOrders.size());        
         }
     }
     

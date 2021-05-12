@@ -7,7 +7,7 @@
         </article>
         <aside style="position:sticky; top: 0;">
             <c:ComponentWrapper title="CART">
-            	<c:PurchaseOrder type="Account" />
+            	<c:PurchaseOrder type="Cart" />
             </c:ComponentWrapper>
         </aside>
     </section>

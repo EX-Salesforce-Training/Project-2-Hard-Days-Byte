@@ -14,27 +14,34 @@ public without sharing class AuraStoreController {
     
     //Add InventoryListToCart
     @AuraEnabled
-    public static void addInventoryListToCart(List<Id> inventoryList){
+    public static List<Integer> addInventoryListToCart(List<Id> inventoryList){
         Id userAcct = getAccountId();
         List<Purchase_Orders__c> newOrders = new List<Purchase_Orders__c>();
         for(Id invId : inventoryList){
-            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = userAcct, Inventory__c = invId, Status__c='New');
+            //hardcoded Account until user implementation
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = invId, Status__c='New');
+            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = userAcct, Inventory__c = invId, Status__c='New');
             newOrders.add(newOrder);
         }
-        system.debug(newOrders);
 		Database.SaveResult[] srList = Database.insert(newOrders, false);
-        for(Database.SaveResult sr : srList){
-            system.debug(sr.isSuccess());
-            system.debug(sr.getId());
+        
+        List<Integer> outOfStock = new List<Integer>();
+        for(Integer i = 0; i < srList.size(); i++){
+            if(!srList[i].isSuccess()){
+               outOfStock.add(i);
+            }
         }
+        return outOfStock;
     }
     
     //orderType is the Status of the order and will return a mapped list for different uses based on location of component
     //FIGURE OUT HOW TO ADD PHOTOS!!!!
     @AuraEnabled
-    public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(String orderType){
+    public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(){
         Id userAcct = getAccountID();
-        String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE '+ orderType +' AND Account__c = \'' + userAcct + '\'';
+        //HardCoded Account until User!!!!
+        //String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE Account__c = \'' + userAcct + '\'';
+        String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE Account__c = \'0015e000005FvciAAC\'';
         List<Purchase_Orders__c> queryOrders = Database.query(queryTemplate);
         Map<String, List<Purchase_Orders__c>> ordersByType = new Map<String, List<Purchase_Orders__c>>();
         for(Purchase_Orders__c order:queryOrders){
