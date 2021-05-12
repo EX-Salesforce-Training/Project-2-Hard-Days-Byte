@@ -1,27 +1,23 @@
 public class AuraAccountController {
-    @AuraEnabled
+    /**@AuraEnabled
     public static Id getUserID(){
         Id currentUserID = UserInfo.getUserId();
 		return currentUserID;
-    }
+    }**/
 	@AuraEnabled
     public static Id getAccountID(){
         Id currentUserID = UserInfo.getUserId();
         Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
         return currentUserAccount;
     } 
-    @AuraEnabled
+   /** @AuraEnabled
     public static Id runAsPartner(){
         try{
         User currentUserID = [SELECT id FROM User WHERE alias='nfill'];
         Id currentUserAccountID = [SELECT accountId FROM User WHERE id=:currentUserID.id].accountId;
         //Id currentUserID = '2F0055e0000027n';
         //Id AccountID= currentUserAccountID ;
-       /** System.runAs(currentUserID){
-            Id currentUserAccount =  getAccountID();
-            AccountID = getAccountID();
-            return currentUserAccount;
-        }**/
+      
        // system.debug(AccountID);
        system.debug(currentUserAccountID);
        return currentUserAccountID;
@@ -34,4 +30,13 @@ public class AuraAccountController {
         return null;
         
     }
+    **/
+     //Id currentUserID = '2F0055e0000027n';
+        //Id AccountID= currentUserAccountID ;
+       /** System.runAs(currentUserID){
+            Id currentUserAccount =  getAccountID();
+            AccountID = getAccountID();
+            return currentUserAccount;
+        }**/
+       // system.debug(AccountID);
 }

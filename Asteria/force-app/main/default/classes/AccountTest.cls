@@ -5,17 +5,13 @@ public class AccountTest {
     public static void AccountTest(){
         Account partnerAccount = new Account();
         partnerAccount.Name ='partner';
-        
+        partnerAccount.Phone ='1231231234';
         Database.insert(partnerAccount);
-        
-        partnerAccount.isPartner = true;
-        
+        partnerAccount.isPartner = true;   
         Database.update(partnerAccount);
-        
         Contact partnerContact = new Contact();
         partnerContact.LastName = 'test';
         partnerContact.AccountId = partnerAccount.Id;
-        
         Database.insert(partnerContact);
         
         Id partnerProfileId = [SELECT id FROM Profile WHERE name='Asteria Partner' Limit 1].id;
@@ -36,6 +32,13 @@ public class AccountTest {
         );
         
         Database.insert(partnerUser); 
+        System.runAs(partnerUser){
+            Id currentUserAccount = AuraAccountController.getAccountID();
+            Id currentUserID = UserInfo.getUserId();
+       		Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
+           System.assertEquals(currentUserAccountid, currentUserAccount);
+           
+        }
     }
 
 }
