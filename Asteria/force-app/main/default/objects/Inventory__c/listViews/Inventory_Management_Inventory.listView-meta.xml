@@ -5,6 +5,6 @@
     <label>Inventory Management</label>
     <queue>Inventory_Management</queue>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <allInternalUsers/>
     </sharedTo>
 </ListView>
