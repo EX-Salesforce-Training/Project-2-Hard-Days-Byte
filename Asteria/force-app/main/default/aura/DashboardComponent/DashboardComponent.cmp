@@ -1,0 +1,9 @@
+<aura:component controller="AuraAccountController" implements="force:appHostable,force:hasRecordId">
+     <aura:handler name ="init" value = "{!this}" action ="{!c.myAction}"/>
+    <aura:attribute name="dashboardID" type="String"/>
+ 
+     <aura:attribute name = "gotDashboardID" type = "boolean" default = "False"/>
+    <aura:if isTrue ="{!v.gotDashboardID}" >
+    <wave:waveDashboard dashboardId="{!v.dashboardID}" />
+    </aura:if>
+</aura:component>

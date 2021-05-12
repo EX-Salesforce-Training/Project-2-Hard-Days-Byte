@@ -10,7 +10,7 @@ public class AuraAccountController {
         Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
         return currentUserAccount;
     } 
-   /** @AuraEnabled
+   @AuraEnabled
     public static Id runAsPartner(){
         try{
         User currentUserID = [SELECT id FROM User WHERE alias='nfill'];
@@ -30,7 +30,11 @@ public class AuraAccountController {
         return null;
         
     }
-    **/
+     @AuraEnabled
+    public static Id getDashboardID(){
+        return null;
+        
+    }
      //Id currentUserID = '2F0055e0000027n';
         //Id AccountID= currentUserAccountID ;
        /** System.runAs(currentUserID){
