@@ -12,9 +12,9 @@
                     Status:
                 </div>
                 <div class="gridRight">
-                    <lightning:outputField fieldName="CaseNumber" variant="label-hidden" />
-                    <lightning:outputField fieldName="Reason" variant="label-hidden" />
-                    <lightning:outputField fieldName="Product__c" variant="label-hidden" />
+                    {!case.CaseNumber}<br />
+                    {!case.Reason}<br />
+                    {!case.Product__c}<br />
                     <aura:if isTrue="{!case.IsClosed}">
                         Closed
                         <aura:set attribute="else">

@@ -19,7 +19,7 @@
     											<!-- Add Shop Page Here -->
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">
-    													<!-- Add Support Page Here -->
+                                                        <c:SupportPage />
     												</aura:if>
         										</aura:set>
     										</aura:if>

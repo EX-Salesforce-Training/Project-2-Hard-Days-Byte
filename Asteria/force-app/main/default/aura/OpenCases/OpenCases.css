@@ -1,7 +1,10 @@
+.THIS {
+    color:#000;
+}
 .THIS .grid {
     padding:5px;
     display:inline-block;
-    margin-bottom:20px;
+    /*margin-bottom:5px;*/
 }
 .THIS .gridLeft {
     float:left;
@@ -12,4 +15,8 @@
 }
 .THIS .fieldLabel {
     font-weight:bold;
+}
+.THIS lightning-formatted-text { 
+    color:#000;
+    font-size:18px;
 }

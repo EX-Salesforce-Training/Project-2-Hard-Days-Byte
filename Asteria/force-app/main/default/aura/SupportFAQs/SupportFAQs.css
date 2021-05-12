@@ -1,17 +1,29 @@
-.THIS .grid {
-    padding:5px;
-    display:inline-block;
-    max-width:1300px;
-    margin-bottom:20px;
+.THIS {
+    color:#000;
 }
-.THIS .gridLeft {
-    float:left;
-    margin-right:20px;
+.THIS.introText {
+    color:#000;
+    text-align:center;
+    font-size:20px;
 }
-.THIS .gridRight {
-    max-width:90%;
-    float:left;
+.THIS .slds-accordion__content {
+    font-size:24px;
+    color:#8c8c8c;
 }
-.THIS .fieldLabel {
-    font-weight:bold;
+.THIS .slds-accordion__list-item {
+    background-color:#fafaf9;
 }
+.THIS h3 {
+    color:#888;
+}
+.THIS button:hover, .THIS button:focus {
+    color:#555;
+}
+.THIS .slds-button {
+    border-bottom:1px solid #999;
+    background-color:#cfcfcf;
+    font-size:24px;
+}
+/*.THIS .slds-truncate {
+    background-color:#ccc;
+}*/
