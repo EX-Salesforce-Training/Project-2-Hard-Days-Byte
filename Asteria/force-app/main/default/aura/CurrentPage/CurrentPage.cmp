@@ -10,7 +10,7 @@
     					<!-- Add Homepage Page Here -->
         				<aura:set  attribute="else">
         					<aura:if isTrue="{!v.currentPage == 'Account'}">
-    							<!-- Add Account Page Here -->
+    							<c:AuraAccountPage/>
         						<aura:set  attribute="else">
         							<aura:if isTrue="{!v.currentPage == 'Lead'}">
     									<!-- Add Lead Page Here -->

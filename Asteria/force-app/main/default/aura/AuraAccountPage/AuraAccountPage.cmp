@@ -1,0 +1,5 @@
+<aura:component >
+    <c:ComponentWrapper title="Account Information">
+	<c:AccountComponent/>
+    </c:ComponentWrapper>
+</aura:component>
