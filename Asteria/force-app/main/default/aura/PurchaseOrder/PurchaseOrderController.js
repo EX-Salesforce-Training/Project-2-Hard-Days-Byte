@@ -7,7 +7,19 @@
           { hideDefaultActions:'true', fixedWidth: 115, label: 'Item Price', fieldName:'Item_Price_Text__c'},
           { type:'button-icon', fixedWidth: 40, typeAttributes:{iconName:{fieldName:'iconName'}, variant:'bare', name:{fieldName:'buttonName'}}}
       ]);
+      component.set("v.orderColumns", [
+          { hideDefaultActions:'true', fixedWidth: 100, label: 'Ore Type', fieldName:'Ore_Type__c'},
+          { hideDefaultActions:'true', fixedWidth: 150, label: 'Mining Site', fieldName:'Mining_Site_List__c'},
+          { hideDefaultActions:'true', fixedWidth: 90, label: 'Weight', fieldName:'Weight__c', type:'number'},
+          { hideDefaultActions:'true', fixedWidth: 115, label: 'Item Price', fieldName:'Item_Price_Text__c'},
+          { type:'button-icon', fixedWidth: 40, typeAttributes:{iconName:{fieldName:'iconName'}, variant:'bare', name:{fieldName:'buttonName'}}}
+      ]);
       const columns = component.get("v.columns");
+      component.set("v.shoppingList", []);
+      component.set("v.new", []);
+ 	  component.set("v.pending", []);
+ 	  component.set("v.approved", []);
+
     },
     
 	addInventory : function(component, event, helper) {
@@ -40,6 +52,13 @@
     },
     
     saveInventory : function(component, event, helper){
+        const cartIds = component.get("v.shoppingList").map(inv=>inv.id);
+        const newOrder = component.get("c.addInventoryListToCart");
+        newOrder.setParams({"inventoryList":cartIds});
+        
+        newOrder.setCallback(function(response){
+        	                     
+        })
         
     }
 })

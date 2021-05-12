@@ -85,18 +85,22 @@ public class AuraStoreControllerTest {
     @isTest
     static void addInventoryAddsToCart(){
         User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
-        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'].Id;
+        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'Limit 1].Id;
         List<Inventory__c> inventoryList = [SELECT id FROM Inventory__C WHERE status__c = 'Approved'];
         List<Id> InventoryToAdd = new List<Id>();
         
         for(Inventory__c item:inventoryList){
-             InventoryToAdd.add(item.id);
+             InventoryToAdd.add(item.Id);
        	}
-        
+
         System.runAs(partnerUser){
+            Test.startTest();
         	auraStoreController.addInventoryListToCart(inventoryToAdd);
-            List<Purchase_Orders__c> newOrders = [SELECT id, name FROM Purchase_Orders__c WHERE Account__c=:accountId];
-        	System.assertEquals(25, newOrders.size());
+            Test.stopTest();
+            List<Purchase_Orders__c> allOrders = [SELECT id, Name FROM Purchase_Orders__c];
+            List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId];
+        	system.debug(newOrders);
+            system.assertEquals(25, newOrders.size());
         }
         
         
@@ -104,7 +108,7 @@ public class AuraStoreControllerTest {
     
     @isTest
     static void getPurchaseOrdersByTypeTest(){
-        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='Partner'].Id;
+        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='partner'].Id;
         User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
         List<Inventory__c> inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved'];
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();

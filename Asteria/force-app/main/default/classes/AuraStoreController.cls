@@ -16,13 +16,17 @@ public without sharing class AuraStoreController {
     @AuraEnabled
     public static void addInventoryListToCart(List<Id> inventoryList){
         Id userAcct = getAccountId();
-        List<Purchase_Orders__c>newOrders = new List<Purchase_Orders__c>();
-        for(Id invID:inventoryList){
+        List<Purchase_Orders__c> newOrders = new List<Purchase_Orders__c>();
+        for(Id invId : inventoryList){
             Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = userAcct, Inventory__c = invId, Status__c='New');
             newOrders.add(newOrder);
         }
-        Database.insert(newOrders, false);
-        //possibly change return type to catch errors(item unavailable, dml, etc.)
+        system.debug(newOrders);
+		Database.SaveResult[] srList = Database.insert(newOrders, false);
+        for(Database.SaveResult sr : srList){
+            system.debug(sr.isSuccess());
+            system.debug(sr.getId());
+        }
     }
     
     //orderType is the Status of the order and will return a mapped list for different uses based on location of component
