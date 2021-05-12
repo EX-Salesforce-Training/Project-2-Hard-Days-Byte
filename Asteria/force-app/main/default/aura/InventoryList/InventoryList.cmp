@@ -1,7 +1,7 @@
 <aura:component controller="AuraStoreController" access="global">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="inventory" type="List"/>
-    <div style="display: flex; flex-wrap: wrap;">
+    <div>
     	<aura:iteration items="{!v.inventory}" var="item">
        		<c:ProductCard item="{!item}"/>
     	</aura:iteration>

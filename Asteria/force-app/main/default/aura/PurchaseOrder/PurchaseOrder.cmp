@@ -1,3 +1,30 @@
 <aura:component >
+    <aura:dependency resource="markup://force:showToast" type="EVENT,COMPONENT" />
+    <aura:handler event="c:AddInventory" action="{!c.addInventory}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="columns" type="List" />
     <aura:attribute name="type" type="String" default="account"/>
+    <aura:attribute name="shoppingList" type="List" default="[]"/>
+    <aura:attribute name="new" type="List" default="[]" />
+    <aura:attribute name="pending" type="List" default="[]" />
+    <aura:attribute name="approved" type="List" default="[]"/>   
+    <aura:if isTrue="{!not(empty(v.pending))}">
+    	<div>
+        	<h3>Pending</h3>
+            <ul>
+               	<aura:iteration items="{!v.pending}" var="item">
+            		<li>{!item.Ore_Type__c}</li>
+            	</aura:iteration>
+            </ul>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!not(empty(v.shoppingList))}">
+        <div>
+        <lightning:datatable hideCheckboxColumn="true" data="{!v.shoppingList}" columns="{!v.columns}" onrowaction="{!c.handleDelete}" keyField="id"/>
+        </div>
+        <lightning:button label="Save" onclick="{!c.SaveInventory}"/>
+    </aura:if>
+    <aura:if isTrue="{!and(and(and(empty(v.shoppingList), empty(v.new)),empty(v.pending)), empty(v.approved))}" >
+		<h4>List is currently empty</h4>
+    </aura:if>
 </aura:component>

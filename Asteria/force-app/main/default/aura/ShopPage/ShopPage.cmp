@@ -1,18 +1,18 @@
 <aura:component >
-	<section style="display:flex">
-    	<article style="flex-grow:1; margin:10px">
-            <c:ComponentWrapper title="Feature Items">
+	<section>
+    	<article>
+            <c:ComponentWrapper title="FEATURED ITEMS">
             	<c:FeaturedItems />
             </c:ComponentWrapper>
         </article>
-        <aside style="width: 34%; min-width: 350px; margin:10px">
-            <c:ComponentWrapper title="Cart">
+        <aside style="position:sticky; top: 0;">
+            <c:ComponentWrapper title="CART">
             	<c:PurchaseOrder type="Cart" />
             </c:ComponentWrapper>
         </aside>
     </section>
-    <section style="margin:10px;">
-        <c:ComponentWrapper title="Inventory" >
+    <section>
+        <c:ComponentWrapper title="INVENTORY">
         	<c:InventoryList/>
         </c:ComponentWrapper>
     </section>

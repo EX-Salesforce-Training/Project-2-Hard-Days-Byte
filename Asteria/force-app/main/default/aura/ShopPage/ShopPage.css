@@ -1,0 +1,29 @@
+section.THIS {
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.THIS article {
+    flex-grow:1;
+    margin-right: 10px;
+}
+
+.THIS aside {
+    width: 34%;
+    min-width: 350px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width:800px){
+    .THIS aside{
+        width: 100%;
+        margin-left: 0;
+        order: 1;
+    }
+    
+    .THIS article {
+        margin-right: 0;
+        order: 2;
+    }
+}

@@ -46,7 +46,7 @@ public class AuraStoreControllerTest {
         
         User partnerUser = new User(
             ProfileId = partnerProfileId,
-            Username = System.now().millisecond() + 'test2@test.com',
+            Username = System.now().millisecond() + 'test42@test.com',
             Alias = 'Hath',
             Email='Hath.Annaway@mgail.com',
             EmailEncodingKey='UTF-8',

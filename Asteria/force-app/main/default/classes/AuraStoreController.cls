@@ -3,7 +3,7 @@ public without sharing class AuraStoreController {
     //return inventoryList based off no orders
     @AuraEnabled
     public static List<Inventory__c> getInventoryList(){
-    	List<Inventory__c> availableInventoryList = [SELECT Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
+    	List<Inventory__c> availableInventoryList = [SELECT Id, Name, Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
                                                  FROM Inventory__c 
                                                  WHERE Status__c='Approved' 
                                                  AND Number_of_Orders__c = 0 

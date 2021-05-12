@@ -16,6 +16,7 @@
     									<!-- Add Lead Page Here -->
         								<aura:set  attribute="else">
         									<aura:if isTrue="{!v.currentPage == 'Shop'}">
+                                                <!-- Add ShopPage Here -->
                                                 <c:ShopPage />
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">

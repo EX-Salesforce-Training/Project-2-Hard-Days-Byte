@@ -1,8 +1,10 @@
 <aura:component controller="AuraStoreController" access="global">
     <aura:attribute name="item" type="Map"/>
+    <aura:registerEvent name="addInventoryEvent" type="c:AddInventory" />
 	<div class="productCard">
         <!-- Find Dynamic way to attach images -->
-        <img src="{!$Resource.ORES + '/' + v.item.Ore_Type__c + '_Ore.png'}"/>
+        <img class="itemImg" src="{!$Resource.ORES + '/' + v.item.Ore_Type__c + '_Ore.png'}"/>
+        <div class="itemInfo">
         <h3>{!v.item.Ore_Type__c}</h3>
         <ul>
         	<li>Weight: {!v.item.Weight__c}</li>
@@ -10,5 +12,7 @@
             <li>Mining Site: {!v.item.Mining_Site_List__c}</li>
             <li>Mothership: {!v.item.Mothership__r.Name}</li>
         </ul>
+        </div>
+        <lightning:button label="Add To Cart" onclick="{!c.addInventory}"/>
     </div>
 </aura:component>
