@@ -1,6 +1,8 @@
 <aura:component controller="AuraStoreController">
     <aura:dependency resource="markup://force:showToast" type="EVENT,COMPONENT" />
     <aura:registerEvent name="updateInventory" type="c:UpdateInventory"/>
+    <aura:registerEvent name="updateRes" type="c:updateItemReservation"/>
+    <aura:handler name="updateRes" action="{!c.doInit}"/>
     <aura:handler event="c:AddInventory" action="{!c.addInventory}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="columns" type="List" />

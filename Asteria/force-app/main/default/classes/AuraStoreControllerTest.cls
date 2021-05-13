@@ -60,6 +60,7 @@ public class AuraStoreControllerTest {
         
         Database.insert(partnerUser);
     }
+    
     @isTest
     static void getInventoryReturnsInventory(){
        
@@ -124,7 +125,9 @@ public class AuraStoreControllerTest {
         List<Inventory__c> inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved'];
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
         for(Integer i = 0; i < 25; i++){
-        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
+            //FIX FOR ACCOUNT WHEN LIVE
+        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
             if(i < 8){
                 newOrder.status__c = 'New';
             }
@@ -138,14 +141,40 @@ public class AuraStoreControllerTest {
         Database.insert(orderList);
         
         System.runAs(partnerUser){
-            List<Purchase_Orders__c> newOrders = auraStoreController.getPurchaseOrdersByType().get('New');
-            List<Purchase_Orders__c> pendingOrders = auraStoreController.getPurchaseOrdersByType().get('Pending');
-        	List<Purchase_Orders__c> approvedOrders = auraStoreController.getPurchaseOrdersByType().get('Approved');
+            
+            Test.startTest();
+            Map<String, List<Purchase_Orders__c>> orders = auraStoreController.getPurchaseOrdersByType();
+            system.debug(orders);
+            List<Purchase_Orders__c> newOrders = orders.get('New');
+            List<Purchase_Orders__c> pendingOrders = orders.get('Pending');
+        	List<Purchase_Orders__c> approvedOrders = orders.get('Approved');
+            Test.stopTest();
             
             System.assertEquals(8, newOrders.size());
             System.assertEquals(8, pendingOrders.size());
             System.assertEquals(9, approvedOrders.size());        
         }
+    }
+    
+    @isTest
+    static void deletePurchaseOrderDeletes(){
+        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='partner'].Id;
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        Id inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved' Limit 1].Id;
+        Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv, Status__c = 'New');
+        
+        System.runAs(partnerUser){
+            insert newOrder;
+            List<Purchase_Orders__c> newOrders = [SELECT id FROM Purchase_Orders__c];
+            system.assertEquals(1, newOrders.size());
+            auraStoreController.deletePurchaseOrder(newOrder.id);
+            List<Purchase_Orders__c> deletedOrders = [SELECT id FROM Purchase_Orders__c];
+            system.assertEquals(0, deletedOrders.size());
+            
+        }
+        
+   
+        
     }
     
 }
