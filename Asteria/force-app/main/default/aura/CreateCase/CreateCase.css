@@ -1,0 +1,95 @@
+.THIS {
+    color:#000;
+}
+.THIS header {
+    background-color:#000;
+}
+.THIS.wrapper {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.THIS #createCaseButton {
+    font-family:SyncopateBold;
+    color:#000;
+    background-color:#F9E9FF;
+    font-size:36px;
+    border:none;
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:45px;
+}
+
+/******* *CREATE CASE MODAL* *******/
+.THIS #modal-heading-01 {
+    font-family:SyncopateBold;
+    font-size:48px;
+}
+.THIS .slds-modal__container {
+    max-width:60em;
+}
+.THIS .slds-modal__header {
+    border-bottom:2px solid #000;
+}
+.THIS .formBody {
+    padding:1px 5px;
+}
+.THIS .infoHeader {
+    display:flex;
+    background-color:#cfcfcf;
+    width:100%;
+    padding:0 0 0 15px;
+    
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    
+    font-family:SyncopateBold;
+    font-size:28px;
+    color:#888;
+}
+/*.THIS .wrapper {
+display:block;
+}*/
+.THIS table {
+    margin-top:-15 px;
+}
+.THIS td {
+    width:50%;
+    padding-bottom:5px;
+}
+.THIS .fieldCustomerName {
+    margin-top:15px;
+    width:100%;
+    font-family:QuicksandBold;
+}
+.THIS .fieldName {
+    width:100%;
+    font-family:QuicksandBold;
+}
+.THIS .fieldOutput {
+    padding-left:15px;
+    width:95%;
+}
+.THIS .fieldInput {
+    margin-top:-20px;
+    padding-left:15px;
+    width:95%;
+}
+/*.THIS .slds-form-element {
+    max-height:40px;
+}*/
+/*.THIS .gridLeft {
+    float:left;
+    width:50%;
+}
+.THIS .gridRight {
+    float:right;
+    width:50%;
+}*/
+.THIS .instruction {
+    font-family:Quicksand;
+    font-size:14px;
+    color:#999;
+}
+/******* /CREATE CASE MODAL/ *******/

@@ -7,13 +7,13 @@
             <div class="grid">
                 <div class="gridLeft fieldLabel">
                     Case Number:<br />
-                    Case Reason:<br />
+                    Case Subject:<br />
                     Product:<br />
                     Status:
                 </div>
                 <div class="gridRight">
                     {!case.CaseNumber}<br />
-                    {!case.Reason}<br />
+                    {!case.Subject}<br />
                     {!case.Product__c}<br />
                     <aura:if isTrue="{!case.IsClosed}">
                         Closed

@@ -13,7 +13,7 @@
                 <c:OpenCases />
             </c:ComponentWrapper>
             <c:ComponentWrapper title="Question still not answered?">
-                //
+                <c:CreateCase />
             </c:ComponentWrapper>
         </aside>
     </section>

@@ -73,7 +73,11 @@ public class SupportControllerTest {
             System.debug('listCases: ' + listCases);
             System.debug('listFAQs: ' + listFAQs);
             
-            System.assertEquals(listCases.size(), 3);
+            Map<String,List<String>> testMap = SupportController.getInitialValues();
+            System.assertEquals(UserInfo.getName(),testMap.get('UserName').get(0));
+            
+            // TODO - ensure they have the correct ConId
+            System.assertEquals(3, listCases.size());
             System.assert(listFAQs.size() > 0);
         }
     }
