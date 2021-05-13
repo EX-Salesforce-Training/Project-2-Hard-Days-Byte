@@ -1,6 +1,6 @@
 ({
 	myAction : function(component, event, helper) {
-		console.log("action called");
+		/**console.log("action called");
 		let currentUser = component.get("c.getDashboardID");
         console.log(currentUser);
         currentUser.setCallback(this, function(response){
@@ -13,6 +13,6 @@
             }
         })
         $A.enqueueAction(currentUser);
-        console.log("enqueued");
+        console.log("enqueued");**/
 	}
 })

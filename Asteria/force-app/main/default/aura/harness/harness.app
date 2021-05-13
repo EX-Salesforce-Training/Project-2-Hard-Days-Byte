@@ -1,4 +1,4 @@
 <aura:application >
+    <c:loginForm />
     <c:AppWrapper/>
-    <c:DashboardComponent/>
 </aura:application>
