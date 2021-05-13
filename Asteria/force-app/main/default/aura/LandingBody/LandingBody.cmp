@@ -1,19 +1,19 @@
 <aura:component >
-	<table>
+    <table>
         <tr>
             <td><img src="/resource/ORES/Gold_Ore.png" /></td>
-            <td>img</td>
-            <td>img</td>
+            <td><img src="/resource/astronauts" /></td>
+            <td><img src="/resource/questions" /></td>
         </tr>
         <tr>
-            <td>line</td>
-            <td>line</td>
-            <td>line</td>
+            <td><img src="/resource/line" class="line" /></td>
+            <td><img src="/resource/line" class="line" /></td>
+            <td><img src="/resource/line" class="line" /></td>
         </tr>
         <tr>
-            <td>BUY ORES</td>
-            <td>GENERATE LEADS</td>
-            <td>GET SUPPORT</td>
+            <td><h2>BUY ORES</h2></td>
+            <td><h2>GENERATE LEADS</h2></td>
+            <td><h2>GET SUPPORT</h2></td>
         </tr>
         <tr>
             <td>Let us mine the ore so you don't have to.</td>

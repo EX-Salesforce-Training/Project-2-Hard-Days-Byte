@@ -1,5 +1,9 @@
 <aura:component >
+    <h1>WE ARE ASTERIA!</h1>
+    <h1 class="subtitle">You can be Asteria too!</h1>
 	<c:ComponentWrapper>
         <c:LandingBody />
     </c:ComponentWrapper>
+    <h1>BECOME A MEMBER</h1>
+    <h1 class="subtitle">~And touch the stars~</h1>
 </aura:component>

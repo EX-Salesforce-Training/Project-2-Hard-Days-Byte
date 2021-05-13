@@ -1,0 +1,12 @@
+.THIS {
+    text-align:center;
+    color:#fff;
+}
+h1.THIS {
+    text-shadow: 2px 2px 4px #000;
+}
+.THIS.subtitle {
+    font-family:Quicksand;
+    color:rgba(249, 233, 255, 0.75);
+    text-shadow:none;
+}
