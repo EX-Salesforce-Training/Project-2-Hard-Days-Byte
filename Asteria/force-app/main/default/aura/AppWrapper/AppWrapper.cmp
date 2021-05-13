@@ -1,13 +1,13 @@
 <aura:component access="global">
-    <aura:attribute name="currentPage" type="String" default="Support" /> 
-    <!--<aura:attribute name="currentPage" type="String" default="Landing" /> -->
+    <aura:attribute name="currentPage" type="String" default="Shop" />
 	<header>
         <!-- header and navbar go here -->
         HEADER GOES HERE
     </header>
     <div id="main">
     	<!-- currentPage wrapper goes here -->
-        <c:CurrentPage currentPage="{!v.currentPage}" />
+        <!--<c:CurrentPage currentPage="{!v.currentPage}" />-->
+        <c:CurrentPage currentPage="Landing" />
     </div>
     <footer>
     	<!-- footer navigation if we get to it -->

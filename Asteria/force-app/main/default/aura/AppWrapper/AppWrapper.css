@@ -28,10 +28,6 @@
 }
 
 .THIS {
-    background-image: url(/resource/bodybackground);
-    background-size:cover;
-    background-attachment:fixed;
-    background-color:#000;
     font-family:"QuicksandMedium";
     font-size: 18px;
 }

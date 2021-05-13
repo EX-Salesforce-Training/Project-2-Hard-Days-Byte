@@ -1,0 +1,5 @@
+<aura:component >
+	<c:ComponentWrapper>
+        <c:LandingBody />
+    </c:ComponentWrapper>
+</aura:component>

@@ -35,9 +35,6 @@ public class SupportControllerTest {
         
         Database.insert(partnerUser);
         Id partnerConId = partnerUser.ContactId;
-        System.debug('partnerUser.ContactId: ' + partnerUser.ContactId);
-        System.debug('partnerContact.Id: ' + partnerContact.Id);
-        System.debug('PartnerUser Profile Id: ' + partnerUser.ProfileId);
         
         List<Case> testCaseList = new List<Case>();
         List<Support_FAQ__c> testFAQList = new List<Support_FAQ__c>();
@@ -57,15 +54,7 @@ public class SupportControllerTest {
         }
         
         insert testCaseList;
-        System.debug('testCaseList: ' + testCaseList);
-        List<Case> explicitCaseList = [SELECT Id, CaseNumber, Reason, Product__c, IsClosed FROM Case WHERE ContactId = :partnerConId LIMIT 3];
-        System.debug('explicitCaseList: ' + explicitCaseList);
         insert testFAQList;
-        System.debug('testFAQList: ' + testFAQList);
-        List<Support_FAQ__c> explicitFAQList = [SELECT Id, Name, Answer__c, Tags__c, Shown__c FROM Support_FAQ__c WHERE Shown__c = True];
-        System.debug('explicitFAQList: ' + explicitFAQList);
-        List<Support_FAQ__c> listFAQs1 = SupportController.getFAQs();
-        System.debug('listFAQs1: ' + listFAQs1);
         
         System.runAs(partnerUser) {
             List<Case> listCases = SupportController.getCases();
@@ -76,10 +65,63 @@ public class SupportControllerTest {
             Map<String,List<String>> testMap = SupportController.getInitialValues();
             System.assertEquals(UserInfo.getName(),testMap.get('UserName').get(0));
             
+            Case newCase = new Case();
+            SupportController.saveCase(newCase);
+                        
             // TODO - ensure they have the correct ConId
             System.assertEquals(3, listCases.size());
             System.assert(listFAQs.size() > 0);
         }
+    }
+    
+    @IsTest
+    static void testNegative() {
+        Id otherProfileId = [SELECT Id FROM Profile WHERE Name = 'Chatter External User' LIMIT 1].Id;
+        Id otherRoleId = [SELECT Id FROM UserRole WHERE PortalType = 'None' LIMIT 1].Id;
+        
+        User otherUser = new User(
+            ProfileId = otherProfileId,
+            Username = System.now().millisecond() + System.now().millisecond() + 'test2@test' + System.now().millisecond() + '.com',
+            Alias = 'kjanew',
+            Email = 'kathryn.janeway@mgail.com',
+            EmailEncodingKey = 'UTF-8',
+            Firstname = 'Kathryn',
+            Lastname = 'Janeway',
+            LanguageLocaleKey = 'en_US',
+            LocaleSidKey = 'en_US',
+            TimeZoneSidKey = 'America/Chicago'
+        );
+        
+        Database.insert(otherUser);
+       
+        List<Case> testCaseList = new List<Case>();
+        List<Support_FAQ__c> testFAQList = new List<Support_FAQ__c>();
+        
+        for(Integer i = 0; i < 20; i++) {
+            Case c = new Case();
+            Support_FAQ__c f = new Support_FAQ__c();
+            
+            testCaseList.add(c);
+            
+            f.Name = 'Rawr?' + i;
+            f.Answer__c = 'rawr' + i;
+            f.Shown__c = True;
+            f.Tags__c = 'Asteria';
+            testFAQList.add(f);
+        }
+        
+        insert testCaseList;
+        insert testFAQList;
+        
+        System.runAs(otherUser) {
+            try {
+                List<Case> listCases = SupportController.getCases();
+            } catch(System.NoAccessException e) {
+                System.debug('The following exception has occurred: ' + e.getMessage());
+            }
+            
+        }
+        
     }
     
 }

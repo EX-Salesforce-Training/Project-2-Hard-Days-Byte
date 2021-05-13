@@ -1,0 +1,24 @@
+<aura:component >
+	<table>
+        <tr>
+            <td><img src="/resource/ORES/Gold_Ore.png" /></td>
+            <td>img</td>
+            <td>img</td>
+        </tr>
+        <tr>
+            <td>line</td>
+            <td>line</td>
+            <td>line</td>
+        </tr>
+        <tr>
+            <td>BUY ORES</td>
+            <td>GENERATE LEADS</td>
+            <td>GET SUPPORT</td>
+        </tr>
+        <tr>
+            <td>Let us mine the ore so you don't have to.</td>
+            <td>Build your business quickly and easily!</td>
+            <td>Have questions? Problems? Get them solved!</td>
+        </tr>
+    </table>
+</aura:component>
