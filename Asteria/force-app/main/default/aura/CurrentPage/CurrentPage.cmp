@@ -1,10 +1,10 @@
 <aura:component access="global">
     <aura:attribute name="currentPage" type="String" />
     <aura:if isTrue="{!v.currentPage == 'Landing'}">
-    	<!-- Add Landing Page Here -->
+        <c:AuraChatterPage/>
         <aura:set  attribute="else">
         	<aura:if isTrue="{!v.currentPage == 'Register'}">
-                <!-- Add Register Page Here -->
+                <c:LoginPage/>
         		<aura:set  attribute="else">
         			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
     					<!-- Add Homepage Page Here -->

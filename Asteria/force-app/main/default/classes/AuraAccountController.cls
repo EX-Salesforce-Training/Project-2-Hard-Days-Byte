@@ -30,11 +30,7 @@ public class AuraAccountController {
         return null;
         
     }
-     @AuraEnabled
-    public static Id getDashboardID(){
-        return null;
-        
-    }
+    
      //Id currentUserID = '2F0055e0000027n';
         //Id AccountID= currentUserAccountID ;
        /** System.runAs(currentUserID){
