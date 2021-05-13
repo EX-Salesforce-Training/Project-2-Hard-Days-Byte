@@ -1,3 +1,13 @@
-<aura:component >
-	
+<aura:component>
+    <aura:attribute name="quote" type="String" default="QUOTE OF THE DAY" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="wrapper">
+        <div class="titleWrapper"><h1>ASTERIA<br />
+            DEEP<br />
+            SPACE<br />
+            MINING</h1>
+        </div>
+        <div class="quoteWrapper"><h1>{!v.quote}</h1></div>
+    </div>
 </aura:component>

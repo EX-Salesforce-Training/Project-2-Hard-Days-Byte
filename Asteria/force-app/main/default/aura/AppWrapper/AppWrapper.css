@@ -28,12 +28,24 @@
 }
 header.THIS {
     height:25vh;
+    background-image:url("/resource/headerimg");
+    /*background-attachment:fixed;*/
+    background-size:100% 75%;
+    background-repeat:no-repeat;
+    background-color:#000;
+    color:#f9e9ff;
 }
 #main.THIS {
     background-image:url("/resource/bodybackground");
     background-attachment:fixed;
     background-size:cover;
     min-height:75vh;
+}
+.THIS #nav {
+    display:inline-block;
+    width:100%;
+    min-height:5vh;
+    background-color:#020305;
 }
 .THIS {
     font-family:"QuicksandMedium";

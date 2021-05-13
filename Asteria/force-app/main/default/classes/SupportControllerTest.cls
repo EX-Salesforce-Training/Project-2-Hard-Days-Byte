@@ -2,7 +2,7 @@
 public class SupportControllerTest {
     
     @IsTest
-    static void testPositive() {
+    static void TestPositive() {
         Account partnerAccount = new Account();
         partnerAccount.Name = 'Partner';
         Database.insert(partnerAccount);
@@ -67,15 +67,14 @@ public class SupportControllerTest {
             
             Case newCase = new Case();
             SupportController.saveCase(newCase);
-                        
-            // TODO - ensure they have the correct ConId
+             
             System.assertEquals(3, listCases.size());
             System.assert(listFAQs.size() > 0);
         }
     }
     
     @IsTest
-    static void testNegative() {
+    static void TestNegative() {
         Id otherProfileId = [SELECT Id FROM Profile WHERE Name = 'Chatter External User' LIMIT 1].Id;
         Id otherRoleId = [SELECT Id FROM UserRole WHERE PortalType = 'None' LIMIT 1].Id;
         

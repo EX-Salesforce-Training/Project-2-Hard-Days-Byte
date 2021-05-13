@@ -1,5 +1,6 @@
 <aura:component access="global">
     <aura:attribute name="currentPage" type="String" />
+    
     <aura:if isTrue="{!v.currentPage == 'Landing'}">
         <c:LandingPage />
         <aura:set  attribute="else">
@@ -19,7 +20,7 @@
     											<!-- Add Shop Page Here -->
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">
-    													<!-- Add Support Page Here -->
+                                                        <c:SupportPage />
     												</aura:if>
         										</aura:set>
     										</aura:if>
