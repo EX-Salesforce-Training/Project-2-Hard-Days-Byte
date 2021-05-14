@@ -1,0 +1,120 @@
+<aura:component controller="SupportController">
+    <!--       HEAD       -->
+    <aura:attribute name="isOpen" type="boolean" default="false" />  
+    <aura:attribute name="userName" type="String" default="CustomerName" />
+    <aura:attribute name="productValues" type="String[]" />
+    <aura:attribute name="typeValues" type="String[]" />
+    <aura:attribute name="reasonValues" type="String[]" />
+    <aura:attribute name="newCase" type="Case" default="{'sobjectType': 'Case',
+                                                        'Origin': 'Web',
+                                                        'Product__c': '',
+                                                        'Type': '',
+                                                        'Reason': '',
+                                                        'Subject': '',
+                                                        'Description': ''}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!--////// HEAD //////-->
+    
+    <div class="wrapper">
+        <button value="CREATE CASE" id="createCaseButton" onclick="{!c.ShowModal}">CREATE CASE</button>
+    </div>
+    
+    <!--       MODAL       -->
+    <aura:if isTrue="{!v.isOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <!--       MODAL HEADER       -->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.CloseModal}" alternativeText="Close" variant="bare-inverse" class="slds-modal__close" />
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">CREATE CASE</h2>
+                </header>
+                <!--////// MODAL HEADER //////-->
+                
+                <!--       MODAL BODY       -->
+                <div class="slds-modal__content" id="modal-content-id-1">
+                    <form>
+                        <div class="infoHeader">
+                            CASE INFORMATION
+                        </div>
+                        <div class="formBody">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="fieldCustomerName">Customer Name</div>
+                                        <div class="fieldOutput">{!v.userName}</div><br />
+                                    </td>
+                                    <td>
+                                        <div class="fieldName">Product</div>
+                                        <div class="fieldInput">
+                                            <lightning:select aura:id="caseForm" name="productSelect" value="{!v.newCase.Product__c}">
+                                                <option text="-- SELECT A PRODUCT --"></option>
+                                                <aura:iteration items="{!v.productValues}" var="prod">
+                                                    <option text="{!prod}"></option>
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="fieldName">Case Type</div>
+                                        <div class="fieldInput">
+                                            <lightning:select aura:id="caseForm" name="typeSelect" value="{!v.newCase.Type}">
+                                                <option text="-- SELECT A TYPE --"></option>
+                                                <aura:iteration items="{!v.typeValues}" var="type">
+                                                    <option text="{!type}"></option>
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="fieldName">Case Reason</div>
+                                        <div class="fieldInput">
+                                            <lightning:select aura:id="caseForm" name="reasonSelect" value="{!v.newCase.Reason}">
+                                                <option text="-- SELECT A REASON --"></option>
+                                                <aura:iteration items="{!v.reasonValues}" var="reas">
+                                                    <option text="{!reas}"></option>
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="infoHeader">
+                            CASE DESCRIPTION
+                        </div>                        
+                        <div class="formBody">
+                            <!--<div class="fieldName" style="margin-bottom:10px;">-->
+                            <div class="fieldName">
+                                Subject
+                            </div>
+                            <div class="fieldInput">
+                                <lightning:input aura:id="caseForm" name="Subject" required="True" value="{!v.newCase.Subject}" />
+                            </div>
+                            <div class="fieldName">
+                                Description&nbsp;&nbsp;<span class="instruction">Please be as detailed as possible.</span>
+                            </div>
+                            <div class="fieldInput">
+                                <lightning:textarea aura:id="caseForm" name="Description" required="True" value="{!v.newCase.Description}" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--////// MODAL BODY //////-->
+                
+                <!--       MODAL FOOTER       -->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.CloseModal}" />
+                    <lightning:button variant="brand" label="Save" title="Save" onclick="{!c.SaveModal}" />
+                </footer>
+                <!--////// MODAL FOOTER //////-->
+                
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    <!--////// MODAL //////-->
+    
+</aura:component>

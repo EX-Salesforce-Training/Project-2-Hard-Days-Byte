@@ -1,0 +1,21 @@
+.THIS {
+    font-size:36px;
+    font-family:QuicksandBold;
+    color:#000;
+    margin:10px 0px 15px;
+}
+table.THIS {
+    width:100%;
+}
+.THIS td {
+    text-align:center;
+    width:33%;
+}
+.THIS .line {
+    width:6px;
+    height:90px;
+}
+.THIS h2.landing {
+    background-color:#fff;
+    color:#575757;
+}

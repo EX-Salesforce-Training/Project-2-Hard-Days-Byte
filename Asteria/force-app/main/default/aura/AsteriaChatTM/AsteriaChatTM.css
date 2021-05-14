@@ -1,0 +1,16 @@
+.THIS {
+    width:100%;
+    height:100%;
+}
+#container.THIS {
+    height:100%;
+    width:100%;
+    min-height:50px;
+}
+.THIS td {
+    vertical-align:bottom;
+}
+.THIS .buttonTD {
+    vertical-align:bottom;
+    text-align:right;
+}

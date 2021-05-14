@@ -3,10 +3,10 @@
     border-radius: 20px;
     width: 100%;
     min-height: 100px;
-    height: 100%;
     overflow:hidden;
     box-sizing:border-box;
     margin: 10px 0;
+    background-color:#fff;
 }
 
 .THIS h2 {
