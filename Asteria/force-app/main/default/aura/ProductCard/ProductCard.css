@@ -45,3 +45,14 @@ div.THIS {
     text-decoration: underline;
     padding: 2px 0;
 }
+
+@media only screen and (max-width:1000px){
+    
+    .THIS.productCard h3 {
+        font-size: 13px;
+    }
+    
+    .THIS.productCart li {
+        font-size: 12px;
+    }
+}

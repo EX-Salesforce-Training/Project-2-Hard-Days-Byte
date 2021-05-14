@@ -12,9 +12,10 @@ public without sharing class AuraStoreController {
     	return availableInventoryList;
  	}
     
+    //returns featured inventory
     @AuraEnabled
     public static List<Inventory__c> getFeaturedInventory(){
-        List<Inventory__c> featuredInventoryList = [SELECT Id, Name, Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
+        List<Inventory__c> featuredInventoryList = [SELECT Id, Name, Featured__c, Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
                                                  FROM Inventory__c 
                                                  WHERE Status__c='Approved' 
                                                  AND Number_of_Orders__c = 0 
@@ -47,7 +48,6 @@ public without sharing class AuraStoreController {
     }
     
     //orderType is the Status of the order and will return a mapped list for different uses based on location of component
-    //FIGURE OUT HOW TO ADD PHOTOS!!!!
     @AuraEnabled
     public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(){
         Id userAcct = getAccountID();

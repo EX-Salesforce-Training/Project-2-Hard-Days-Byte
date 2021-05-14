@@ -11,3 +11,14 @@ div.THIS {
 .THIS h3 {
     font-size: 12px;
 }
+
+.THIS .outOfStock  {
+    width: 100%;
+    text-align: center;
+}
+
+h3.errorMessage.THIS {
+    color: red;
+    width: 100%;
+    text-align: center;
+}

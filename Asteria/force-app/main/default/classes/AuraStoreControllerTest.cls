@@ -120,7 +120,7 @@ public class AuraStoreControllerTest {
     
     @isTest
     static void getPurchaseOrdersByTypeTest(){
-        Id accountId = [SELECT id FROM ACCOUNT WHERE NAME='partner'].Id;
+        Id accountId = [SELECT id FROM ACCOUNT WHERE Name='partner'].Id;
         User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
         List<Inventory__c> inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved'];
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
@@ -169,12 +169,64 @@ public class AuraStoreControllerTest {
             system.assertEquals(1, newOrders.size());
             auraStoreController.deletePurchaseOrder(newOrder.id);
             List<Purchase_Orders__c> deletedOrders = [SELECT id FROM Purchase_Orders__c];
-            system.assertEquals(0, deletedOrders.size());
-            
+            system.assertEquals(0, deletedOrders.size());   
         }
-        
-   
-        
     }
     
+    @isTest
+    static void return4FeaturedItems(){
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        List<Inventory__c> itemsToFeature = [SELECT id, Featured__c FROM Inventory__c WHERE Status__c = 'Approved' LIMIT 5];
+        for(Inventory__c item:itemsToFeature){
+            item.Featured__c = true;
+        }
+        system.debug(itemsToFeature);
+        update itemsToFeature;
+        
+        system.runAs(partnerUser){
+            List<Inventory__c> featuredItems = AuraStoreController.getFeaturedInventory();
+            
+            system.assertEquals(4, featuredItems.size());
+            
+            for(Inventory__c item: featuredItems){
+                system.assertEquals(true, item.Featured__c);
+            }
+        }
+    }
+    
+    @isTest
+    static void sendAllNewOrders(){
+        User partnerUser = [SELECT id, name FROM User WHERE alias='Hath'];
+        Id accountId = [SELECT id FROM ACCOUNT WHERE Name='partner'].Id;
+        List<Inventory__c> inv = [SELECT id FROM Inventory__c WHERE Status__c='Approved'];
+        List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
+        for(Integer i = 0; i < 25; i++){
+            //FIX FOR ACCOUNT WHEN LIVE
+        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);
+            orderList.add(newOrder);
+           
+        }
+        insert orderList;
+        
+        system.debug(orderList);
+        List<Id> orderListIds = new List<Id>();
+        
+        for(Purchase_Orders__c order: orderList){
+            orderListIds.add(order.Id);
+        }
+        
+        system.debug(orderListIds);
+        system.runAs(partnerUser){
+          	Test.startTest();
+            AuraStoreController.sendNewOrders(orderListIds);
+            Test.stopTest();
+            List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = '0015e000005FvciAAC'];
+        
+        	system.assertEquals(25, pendingOrders.size());
+            for(Purchase_Orders__c order: pendingOrders){
+                system.assertEquals('Pending', order.Status__c);
+            }
+        }
+    }
 }
