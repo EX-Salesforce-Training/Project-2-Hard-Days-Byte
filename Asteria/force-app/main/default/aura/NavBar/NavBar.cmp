@@ -1,0 +1,25 @@
+<aura:component controller="NavBarController">
+    <aura:attribute name="isLogged" type="boolean" default="False" />
+    <aura:registerEvent name="SendCurrentPage" type="c:NavBarClick" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!!v.isLogged}">
+        <div class="wrapper">
+            <table>
+                <tr>
+                    <td><h2><a onclick="{!c.handleClick}">Home</a></h2></td>
+                    <td><h2><a onclick="{!c.handleClick}">Account</a></h2></td>
+                    <td><h2><a onclick="{!c.handleClick}">Client</a></h2></td>
+                    <td><h2><a onclick="{!c.handleClick}">Shop</a></h2></td>
+                    <td><h2><a onclick="{!c.handleClick}">Support</a></h2></td>
+                </tr>
+            </table>    
+        </div>
+        <aura:set attribute="else">
+            <div class="wrapper">
+                <div class="unloggedLeft"><h2><a onclick="{!c.handleClick}">Home</a></h2></div>
+                <div class="unloggedRight"><h2><a onclick="{!c.handleClick}" value="Login">Login</a></h2></div>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>
