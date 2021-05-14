@@ -1,0 +1,28 @@
+<aura:component controller="SupportController">
+    <aura:attribute name="caseList" type="Case[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.FetchCaseList}" />
+    
+    <aura:iteration items="{!v.caseList}" var="case">
+        <lightning:recordViewForm recordId="{!case.Id}" objectApiName="Case">
+            <div class="grid">
+                <div class="gridLeft fieldLabel">
+                    Case Number:<br />
+                    Case Subject:<br />
+                    Product:<br />
+                    Status:
+                </div>
+                <div class="gridRight">
+                    {!case.CaseNumber}<br />
+                    {!case.Subject}<br />
+                    {!case.Product__c}<br />
+                    <aura:if isTrue="{!case.IsClosed}">
+                        Closed
+                        <aura:set attribute="else">
+                        	Open
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </div>
+        </lightning:recordViewForm>
+    </aura:iteration>
+</aura:component>

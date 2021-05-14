@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="year" type="String" default="2021" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+	Asteria: Deep Space Mining is &copy;{!v.year} Asteria, Inc.&trade;
+</aura:component>

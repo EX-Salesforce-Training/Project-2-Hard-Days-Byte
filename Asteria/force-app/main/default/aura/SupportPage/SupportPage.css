@@ -1,0 +1,13 @@
+.THIS article .cComponentWrapper {
+    max-width:1250px;
+}
+.THIS .cComponentWrapper:nth-child(3) h2 {
+    font-family:QuicksandBold;
+    min-height:60px;
+    font-size:28px;
+    padding-top:5px;
+    text-transform:none;
+}
+.THIS .cComponentWrapper:nth-child(3) {
+    background-color:#000;
+}
