@@ -120,7 +120,7 @@
         $A.enqueueAction(newOrder);                        
     },
     
-    deleteOrder : function(component){
+    deleteOrder : function(component, event){
     	const action = event.getParam('action');
         const row = event.getParam('row');
         const deleteOrder = component.get("c.deletePurchaseOrder");
@@ -141,8 +141,7 @@
             	const updateFeatured = $A.get("e.c:UpdateFeaturedItems");
             	updateFeatured.fire();
         	}    
-    	});
-        
+    	});   
         $A.enqueueAction(deleteOrder);                     
     },
     placeOrder : function(component){

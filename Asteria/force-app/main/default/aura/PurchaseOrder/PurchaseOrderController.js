@@ -16,7 +16,7 @@
     },
                     
     handleDeleteOrder : function(component, event, helper){
-     	helper.deleteOrder(component);           
+     	helper.deleteOrder(component, event);           
     },
     
    	sendOrder : function(component, event, helper){
