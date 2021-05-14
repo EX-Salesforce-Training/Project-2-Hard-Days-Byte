@@ -32,8 +32,8 @@ public without sharing class AuraStoreController {
         List<Purchase_Orders__c> newOrders = new List<Purchase_Orders__c>();
         for(Id invId : inventoryList){
             //hardcoded Account until user implementation
-            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = invId, Status__c='New');
-            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = userAcct, Inventory__c = invId, Status__c='New');
+            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = invId, Status__c='New');
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = userAcct, Inventory__c = invId, Status__c='New');
             newOrders.add(newOrder);
         }
 		Database.SaveResult[] srList = Database.insert(newOrders, false);
@@ -51,10 +51,7 @@ public without sharing class AuraStoreController {
     @AuraEnabled
     public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(){
         Id userAcct = getAccountID();
-        //HardCoded Account until User!!!!
-        //String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE Account__c = \'' + userAcct + '\'';
-        String queryTemplate = 'SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c, Inventory__r.Item_Price_Text__c, Inventory__r.Mining_Site_List__c FROM Purchase_Orders__c WHERE Account__c = \'0015e000005FvciAAC\'';
-        List<Purchase_Orders__c> queryOrders = Database.query(queryTemplate);
+        List<Purchase_Orders__c> queryOrders = [SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE Account__c = :userAcct];
         Map<String, List<Purchase_Orders__c>> ordersByType = new Map<String, List<Purchase_Orders__c>>();
         for(Purchase_Orders__c order:queryOrders){
             if(ordersByType.containskey(order.Status__c)){
@@ -70,11 +67,11 @@ public without sharing class AuraStoreController {
     @AuraEnabled
     public static void deletePurchaseOrder(Id order){
         
-        //Id AccountId = getAccountId();
+        Id AccountId = getAccountId();
         Purchase_Orders__c orderToDelete = [SELECT id, Account__c FROM Purchase_Orders__c WHERE id = :order LIMIT 1];
-        //if(orderToDelete.Account__c == AccountId){
+        if(orderToDelete.Account__c == AccountId){
         	delete orderToDelete;    
-        //}
+        }
     }
     
     //get all pictures from Single Item

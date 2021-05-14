@@ -97,7 +97,7 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> OrdersToAdd = new List<Purchase_Orders__c>();
         for(Integer i = 0; i < addPurchaseOrder.size(); i++){
             if(Math.mod(i, 2) != 0){
-            OrdersToAdd.add(new Purchase_Orders__c(Account__c = accountId, Inventory__c=addPurchaseOrder[i].Id, status__c = 'New'));
+            OrdersToAdd.add(new Purchase_Orders__c(Account__c = accountId, Inventory__c=addPurchaseOrder[i].Id, status__c = 'Pending'));
             }
         }
         insert OrdersToAdd;
@@ -112,9 +112,9 @@ public class AuraStoreControllerTest {
             Test.startTest();
         	List<Integer> outOfStock = auraStoreController.addInventoryListToCart(inventoryToAdd);
             Test.stopTest();
-            List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId];
+            List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId AND Status__c = 'New'];
         	system.debug(newOrders);
-            system.assertEquals(12, newOrders.size());
+            system.assertEquals(13, newOrders.size());
             system.assertEquals(12, outOfStock.size());
             
             for(Integer i : outOfStock){
@@ -133,8 +133,8 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
         for(Integer i = 0; i < 25; i++){
             //FIX FOR ACCOUNT WHEN LIVE
-        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
-            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
+        	//Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
             if(i < 8){
                 newOrder.status__c = 'New';
             }
@@ -209,8 +209,8 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
         for(Integer i = 0; i < 25; i++){
             //FIX FOR ACCOUNT WHEN LIVE
-        	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
-            //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);
+        	//Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);
             orderList.add(newOrder);
            
         }
@@ -228,9 +228,9 @@ public class AuraStoreControllerTest {
           	Test.startTest();
             AuraStoreController.sendNewOrders(orderListIds);
             Test.stopTest();
-            //Change when Live
-            List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = '0015e000005FvciAAC'];
-        	//List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = :accountId];
+            //Change when Live Account not available if no user
+            //List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = '0015e000005FvciAAC'];
+        	List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = :accountId];
         	system.assertEquals(25, pendingOrders.size());
             for(Purchase_Orders__c order: pendingOrders){
                 system.assertEquals('Pending', order.Status__c);
