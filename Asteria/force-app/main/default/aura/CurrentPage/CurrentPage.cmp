@@ -9,6 +9,7 @@
         		<aura:set  attribute="else">
         			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
     					<!-- Add Homepage Page Here -->
+                        <c:HomePage />
         				<aura:set  attribute="else">
         					<aura:if isTrue="{!v.currentPage == 'Account'}">
     							<!-- Add Account Page Here -->
@@ -17,7 +18,8 @@
     									<!-- Add Lead Page Here -->
         								<aura:set  attribute="else">
         									<aura:if isTrue="{!v.currentPage == 'Shop'}">
-    											<!-- Add Shop Page Here -->
+                                                <!-- Add ShopPage Here -->
+                                                <c:ShopPage />
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">
                                                         <c:SupportPage />

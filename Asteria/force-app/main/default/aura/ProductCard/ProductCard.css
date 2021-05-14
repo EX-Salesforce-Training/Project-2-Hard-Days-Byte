@@ -1,0 +1,58 @@
+div.THIS {
+    width: 23%;
+    border-radius: 20px;
+    background-color: black;
+    color: #F9E9FF;
+    margin: 10px 1%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: space-between;
+}
+
+.THIS img {
+    width: 50%;
+    display: block;
+    margin: auto;
+    padding: 2%;
+}
+.THIS .itemInfo {
+    padding: 10px;
+}
+.THIS.productCard h3 {
+    font-size: 15px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding: 2px;
+}
+
+.THIS.productCard ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.THIS.productCard li {
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.THIS .btn {
+    font-size: 12px;
+    color: #4504FF;
+    position: static;
+    font-family: "SyncopateBold";
+    text-decoration: underline;
+    padding: 2px 0;
+}
+
+@media only screen and (max-width:1000px){
+    
+    .THIS.productCard h3 {
+        font-size: 13px;
+    }
+    
+    .THIS.productCart li {
+        font-size: 12px;
+    }
+}
