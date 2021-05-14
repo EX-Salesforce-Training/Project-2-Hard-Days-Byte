@@ -1,7 +1,7 @@
 ({
 	myAction : function(component, event, helper) {
         console.log("action called");
-		let currentUser = component.get("c.runAsPartner");
+		let currentUser = component.get("c.getAccountID");
         console.log(currentUser);
         currentUser.setCallback(this, function(response){
             console.log(response.getState());

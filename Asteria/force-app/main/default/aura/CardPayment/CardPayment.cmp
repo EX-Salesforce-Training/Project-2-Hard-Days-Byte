@@ -1,8 +1,8 @@
-<aura:component controller= "AuraAccountController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+<aura:component controller= "AuraPaymentController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     <aura:handler name ="init" value = "{!this}" action ="{!c.payment}"/>
     <aura:attribute name = "AccountPaymentID" type = "String" />
     <aura:attribute name="fields" type="String[]" default="['CardHolderFirstName__c', 'CardHolderLastName__c', 'CardLastFour__c', 'CardType__c', 'ExpiryMonth__c', 'ExpiryYear__c', 
-                                         'Status__c']" />
+                                        'CardName__c', 'Status__c']" />
      <aura:attribute name = "gotPayment" type = "boolean" default = "False"/>
     <aura:if isTrue ="{!v.gotPayment}" >
     <lightning:recordForm style ="width:100%"
@@ -12,7 +12,6 @@
         columns="2"
         mode="view"
           >
-       
     </lightning:recordForm>
     </aura:if>
 </aura:component>

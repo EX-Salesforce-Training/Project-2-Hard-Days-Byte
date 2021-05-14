@@ -1,5 +1,5 @@
 @isTest
-public class AccountTest {
+public class PaymentTest {
 
     @isTest
     public static void AccountTest(){
@@ -33,13 +33,10 @@ public class AccountTest {
         
         Database.insert(partnerUser); 
         System.runAs(partnerUser){
-            List<CardPayment__c> cardPayments = new List<CardPayment__c>();
-            Id currentUserID = UserInfo.getUserId();
-       		Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
-            CardPayment__c accountPayment = new CardPayment__c();
-            accountPayment.account__c = currentUserAccountid;
-        //    cardPayments= [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccountid].Id;
-         //   System.assertEquals(1, );
+            //Id currentUserAccount = AuraAccountController.getAccountPayment();
+           // Id currentUserID = UserInfo.getUserId();
+       		//Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
+           //System.assertEquals(currentUserAccountid, currentUserAccount);
            
         }
     }

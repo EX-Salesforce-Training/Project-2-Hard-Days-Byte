@@ -7,16 +7,20 @@ public class AuraAccountController {
 	@AuraEnabled
     public static Id getAccountID(){
         Id currentUserID = UserInfo.getUserId();
-        Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
+        System.debug('AccountCurrentUserID: '+ currentUserID);
+        Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserID LIMIT 1].accountId;
+        system.debug('Account user Account: '+ currentUserAccount);
         return currentUserAccount;
+         
     } 
+    /**
     @AuraEnabled
     public static Id getAccountPayment(){
         Id currentUserID = UserInfo.getUserId();
         Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
         Id cardPayment = [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccount].Id;
         return cardPayment;
-    } 
+    } **/
    @AuraEnabled
     public static Id runAsPartner(){
         try{
@@ -37,6 +41,7 @@ public class AuraAccountController {
         return null;
         
     }
+    /**
       @AuraEnabled
     public static Id runAsPartnerPayment(){
         
@@ -46,7 +51,7 @@ public class AuraAccountController {
         return cardPayment;        
         
     }
-    
+    **/
      //Id currentUserID = '2F0055e0000027n';
         //Id AccountID= currentUserAccountID ;
        /** System.runAs(currentUserID){

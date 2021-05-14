@@ -1,9 +1,9 @@
 ({
-	payment : function(component, event, helper) {
+	payment: function(component, event, helper) {
         console.log("action called");
-		let currentUser = component.get("c.runAsPartnerPayment");
-        console.log(currentUser);
-        currentUser.setCallback(this, function(response){
+		let currentUserPayment = component.get("c.getAccountPayment");
+        console.log(currentUserPayment); 
+        currentUserPayment.setCallback(this, function(response){
             console.log(response.getState());
             if(response.getState() == "SUCCESS"){
                 console.log("successful response");
@@ -12,7 +12,7 @@
                 console.log(response.getReturnValue());
             }
         })
-        $A.enqueueAction(currentUser);
+        $A.enqueueAction(currentUserPayment);
         console.log("enqueued");
 	}
 })
