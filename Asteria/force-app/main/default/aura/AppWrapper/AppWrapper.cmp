@@ -1,5 +1,9 @@
 <aura:component implements="forceCommunity:themeLayout" access="global" description="Asteria Theme">
+<<<<<<< HEAD
     <aura:attribute name="currentPage" type="String" default="Shop" />
+=======
+    <aura:attribute name="currentPage" type="String" default="Register" />
+>>>>>>> bd276d7784a7b80a72607fdf4e2538f9d5230499
 	<header>
         <!-- header and navbar go here -->
         HEADER GOES HERE
