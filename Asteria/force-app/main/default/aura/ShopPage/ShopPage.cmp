@@ -1,0 +1,19 @@
+<aura:component >
+	<section>
+    	<article>
+            <c:ComponentWrapper title="FEATURED ITEMS">
+            	<c:FeaturedItems />
+            </c:ComponentWrapper>
+        </article>
+        <aside>
+            <c:ComponentWrapper title="CART">
+            	<c:PurchaseOrder type="Cart" />
+            </c:ComponentWrapper>
+        </aside>
+    </section>
+    <section>
+        <c:ComponentWrapper title="INVENTORY">
+        	<c:InventoryList/>
+        </c:ComponentWrapper>
+    </section>
+</aura:component>

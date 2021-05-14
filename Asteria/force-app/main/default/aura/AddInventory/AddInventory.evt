@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Add Inventory to Cart" >
+	<aura:attribute name="inventory" type="Map"/>
+</aura:event>
