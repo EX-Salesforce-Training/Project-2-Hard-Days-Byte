@@ -7,7 +7,7 @@
         </article>
         <aside style="width:34%;min-width:350px;margin:10px;">
             <c:ComponentWrapper title="Asteria Chat™">
-                ///
+                <c:AsteriaChatTM />
             </c:ComponentWrapper>
         	<c:ComponentWrapper title="Open Cases">
                 <c:OpenCases />
