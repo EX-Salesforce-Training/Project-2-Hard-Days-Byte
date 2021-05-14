@@ -64,11 +64,26 @@ public class AuraStoreControllerTest {
     @isTest
     static void getInventoryReturnsInventory(){
        
+<<<<<<< HEAD
        List<Inventory__c> approvedItems = AuraStoreController.getInventoryList();
         System.assertEquals(25, approvedItems.size());
         for(Inventory__c item:approvedItems){
             System.assertEquals('Approved', item.status__c);
         }
+=======
+       User partnerUser = [SELECT id FROM User WHERE alias='Hath'];
+       
+        System.runAs(partnerUser){
+        	List<Inventory__c> approvedItems = AuraStoreController.getInventoryList();
+        	System.assertEquals(25, approvedItems.size());
+        	for(Inventory__c item:approvedItems){
+            	System.assertEquals('Approved', item.status__c);
+                System.assertEquals(0, item.Number_Of_Orders__c);
+        	}
+        }
+       
+        
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
         
     }
     
@@ -90,7 +105,11 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> OrdersToAdd = new List<Purchase_Orders__c>();
         for(Integer i = 0; i < addPurchaseOrder.size(); i++){
             if(Math.mod(i, 2) != 0){
+<<<<<<< HEAD
             OrdersToAdd.add(new Purchase_Orders__c(Account__c = accountId, Inventory__c=addPurchaseOrder[i].Id, status__c = 'New'));
+=======
+            OrdersToAdd.add(new Purchase_Orders__c(Account__c = accountId, Inventory__c=addPurchaseOrder[i].Id, status__c = 'Pending'));
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
             }
         }
         insert OrdersToAdd;
@@ -105,9 +124,15 @@ public class AuraStoreControllerTest {
             Test.startTest();
         	List<Integer> outOfStock = auraStoreController.addInventoryListToCart(inventoryToAdd);
             Test.stopTest();
+<<<<<<< HEAD
             List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId];
         	system.debug(newOrders);
             system.assertEquals(12, newOrders.size());
+=======
+            List<Purchase_Orders__c> newOrders = [SELECT id, Name FROM Purchase_Orders__c WHERE Account__c=:accountId AND Status__c = 'New'];
+        	system.debug(newOrders);
+            system.assertEquals(13, newOrders.size());
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
             system.assertEquals(12, outOfStock.size());
             
             for(Integer i : outOfStock){
@@ -126,8 +151,13 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
         for(Integer i = 0; i < 25; i++){
             //FIX FOR ACCOUNT WHEN LIVE
+<<<<<<< HEAD
         	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
             //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
+=======
+        	//Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);    
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
             if(i < 8){
                 newOrder.status__c = 'New';
             }
@@ -202,8 +232,13 @@ public class AuraStoreControllerTest {
         List<Purchase_Orders__c> orderList = new List<Purchase_Orders__C>();
         for(Integer i = 0; i < 25; i++){
             //FIX FOR ACCOUNT WHEN LIVE
+<<<<<<< HEAD
         	Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
             //Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);
+=======
+        	//Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = '0015e000005FvciAAC', Inventory__c = inv[i].id);    
+            Purchase_Orders__c newOrder = new Purchase_Orders__c(Account__c = accountId, Inventory__c = inv[i].id);
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
             orderList.add(newOrder);
            
         }
@@ -221,8 +256,14 @@ public class AuraStoreControllerTest {
           	Test.startTest();
             AuraStoreController.sendNewOrders(orderListIds);
             Test.stopTest();
+<<<<<<< HEAD
             List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = '0015e000005FvciAAC'];
         
+=======
+            //Change when Live Account not available if no user
+            //List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = '0015e000005FvciAAC'];
+        	List<Purchase_Orders__c> pendingOrders = [SELECT id, status__c FROM Purchase_Orders__c WHERE Account__C = :accountId];
+>>>>>>> 9ba4ec957e41326ceb235d967f3b7700f3cbeb5c
         	system.assertEquals(25, pendingOrders.size());
             for(Purchase_Orders__c order: pendingOrders){
                 system.assertEquals('Pending', order.Status__c);
