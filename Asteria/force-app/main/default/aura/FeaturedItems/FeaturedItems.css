@@ -1,0 +1,24 @@
+div.THIS {
+	display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.THIS li {
+    font-size: 14px;
+}
+
+.THIS h3 {
+    font-size: 12px;
+}
+
+.THIS .outOfStock  {
+    width: 100%;
+    text-align: center;
+}
+
+h3.errorMessage.THIS {
+    color: red;
+    width: 100%;
+    text-align: center;
+}
