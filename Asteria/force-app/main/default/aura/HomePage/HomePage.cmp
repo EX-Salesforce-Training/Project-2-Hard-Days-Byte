@@ -1,0 +1,17 @@
+<aura:component >
+	<section>
+    	<article>
+            <c:ComponentWrapper title="SALES GOALS">
+            </c:ComponentWrapper>
+        </article>
+        <aside>
+            <c:ComponentWrapper title="REGISTER LEADS">
+            </c:ComponentWrapper>
+        </aside>
+    </section>
+   	<section>
+        <c:ComponentWrapper title="FEATURED ITEMS">
+            	<c:FeaturedItems />
+        </c:ComponentWrapper>
+    </section>
+</aura:component>

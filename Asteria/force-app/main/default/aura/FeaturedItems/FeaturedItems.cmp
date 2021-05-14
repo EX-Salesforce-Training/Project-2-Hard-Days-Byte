@@ -1,0 +1,19 @@
+<aura:component controller="AuraStoreController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:UpdateFeaturedItems" action="{!c.doInit}"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="featuredItems" type="List" />
+	<aura:if isTrue="{!not(empty(v.errorMessage))}">
+       <h3 class="errorMessage">{!v.errorMessage}</h3>
+    </aura:if>
+    <div>
+        <aura:if isTrue="{!not(empty(v.featuredItems))}">
+        	<aura:iteration items="{!v.featuredItems}" var="item">
+       			<c:ProductCard item="{!item}"/>
+    		</aura:iteration>
+            <aura:set attribute="else">
+            	<h4 class="outOfStock">Featured Items Out Of Stock</h4>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

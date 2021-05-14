@@ -26,7 +26,13 @@
     font-family:"QuicksandBold";
     src: url(/resource/QuicksandBold);
 }
+header.THIS {
+    height: 25vh;
+}
 
+#main.THIS {
+    min-height: 75vh;
+}
 .THIS {
     font-family:"QuicksandMedium";
     font-size: 18px;
