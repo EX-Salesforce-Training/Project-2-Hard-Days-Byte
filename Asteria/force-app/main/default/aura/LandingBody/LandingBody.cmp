@@ -11,12 +11,12 @@
             <td><img src="/resource/line" class="line" /></td>
         </tr>
         <tr>
-            <td><h2>BUY ORES</h2></td>
-            <td><h2>GENERATE LEADS</h2></td>
-            <td><h2>GET SUPPORT</h2></td>
+            <td><h2 class="landing">BUY ORES</h2></td>
+            <td><h2 class="landing">GENERATE LEADS</h2></td>
+            <td><h2 class="landing">GET SUPPORT</h2></td>
         </tr>
         <tr>
-            <td>Let us mine the ore so you don't have to.</td>
+            <td>Let us mine the ore so you don't have to!</td>
             <td>Build your business quickly and easily!</td>
             <td>Have questions? Problems? Get them solved!</td>
         </tr>

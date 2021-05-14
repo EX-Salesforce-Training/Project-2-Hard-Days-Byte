@@ -15,7 +15,7 @@ table.THIS {
     width:6px;
     height:90px;
 }
-.THIS h2 {
+.THIS h2.landing {
     background-color:#fff;
     color:#575757;
 }
