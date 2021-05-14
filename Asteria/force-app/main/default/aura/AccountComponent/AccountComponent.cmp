@@ -10,7 +10,9 @@
         fields="{!v.fields}"
         columns="2"
         mode="view"
+      
           >
+       
     </lightning:recordForm>
     </aura:if>
 </aura:component>

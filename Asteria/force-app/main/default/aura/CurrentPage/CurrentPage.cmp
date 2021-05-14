@@ -1,16 +1,16 @@
 <aura:component access="global">
     <aura:attribute name="currentPage" type="String" />
     <aura:if isTrue="{!v.currentPage == 'Landing'}">
-        <c:AuraChatterPage/>
+    	<!-- Add Landing Page Here -->
         <aura:set  attribute="else">
         	<aura:if isTrue="{!v.currentPage == 'Register'}">
-                <c:LoginPage/>
+                <!-- Add Register Page Here -->
         		<aura:set  attribute="else">
         			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
     					<!-- Add Homepage Page Here -->
         				<aura:set  attribute="else">
         					<aura:if isTrue="{!v.currentPage == 'Account'}">
-    							<c:AuraAccountPage/>
+                                <c:AuraAccountPage/>
         						<aura:set  attribute="else">
         							<aura:if isTrue="{!v.currentPage == 'Lead'}">
     									<!-- Add Lead Page Here -->

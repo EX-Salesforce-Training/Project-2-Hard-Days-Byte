@@ -10,6 +10,13 @@ public class AuraAccountController {
         Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
         return currentUserAccount;
     } 
+    @AuraEnabled
+    public static Id getAccountPayment(){
+        Id currentUserID = UserInfo.getUserId();
+        Id currentUserAccount = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
+        Id cardPayment = [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccount].Id;
+        return cardPayment;
+    } 
    @AuraEnabled
     public static Id runAsPartner(){
         try{
@@ -28,6 +35,15 @@ public class AuraAccountController {
         }
         
         return null;
+        
+    }
+      @AuraEnabled
+    public static Id runAsPartnerPayment(){
+        
+        User currentUserID = [SELECT id FROM User WHERE alias='nfill'];
+        Id currentUserAccountID = [SELECT accountId FROM User WHERE id=:currentUserID.id].accountId;
+		 Id cardPayment = [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccountID].Id;
+        return cardPayment;        
         
     }
     
