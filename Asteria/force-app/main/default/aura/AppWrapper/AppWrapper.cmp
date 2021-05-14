@@ -1,4 +1,4 @@
-<aura:component access="global">
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Asteria Theme">
     <aura:attribute name="currentPage" type="String" default="Landing" /> 
 	<header>
         <!-- header and navbar go here -->
