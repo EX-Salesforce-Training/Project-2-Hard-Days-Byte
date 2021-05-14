@@ -159,7 +159,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <label>Inventory</label>
     <nameField>
         <displayFormat>Inv-{00000}</displayFormat>
