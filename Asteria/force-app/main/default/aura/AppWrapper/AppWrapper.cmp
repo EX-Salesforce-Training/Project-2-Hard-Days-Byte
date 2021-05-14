@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <aura:component access="global">
     <aura:attribute name="currentPage" type="String" default="Landing" /> 
+=======
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Asteria Theme">
+    <aura:attribute name="currentPage" type="String" default="Register" />
+>>>>>>> 8233d20a2f76150688bbd08ced3bb7d5a18afac8
 	<header>
         <!-- header and navbar go here -->
         HEADER GOES HERE
