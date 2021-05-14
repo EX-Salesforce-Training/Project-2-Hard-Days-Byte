@@ -2,27 +2,33 @@ section.THIS {
 	display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 5px 0;
 }
 
 .THIS article {
-    flex-grow:1;
-    margin-right: 10px;
+    width: 64%;
+    box-sizing:border-box;
 }
 
 .THIS aside {
-    width: 34%;
-    min-width: 350px;
-    margin-left: 10px;
+    width: 32%;
+    min-width: 425px;
+    box-sizing: border-box;
 }
 
-@media only screen and (max-width:800px){
+.THIS .slds-truncate {
+    font-size: 14px;
+}
+@media only screen and (max-width:1000px){
     .THIS aside{
         width: 100%;
+        min-width: 0;
         margin-left: 0;
         order: 1;
     }
     
     .THIS article {
+        width: 100%;
         margin-right: 0;
         order: 2;
     }

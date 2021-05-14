@@ -8,6 +8,7 @@
         		<aura:set  attribute="else">
         			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
     					<!-- Add Homepage Page Here -->
+                        <c:HomePage />
         				<aura:set  attribute="else">
         					<aura:if isTrue="{!v.currentPage == 'Account'}">
     							<!-- Add Account Page Here -->

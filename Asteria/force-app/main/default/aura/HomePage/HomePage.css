@@ -1,0 +1,14 @@
+section.THIS {
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.THIS article {
+    flex-grow:1;
+}
+
+.THIS aside {
+    width: 34%;
+    min-width: 350px;
+}

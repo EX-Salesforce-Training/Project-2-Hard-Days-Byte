@@ -5,7 +5,7 @@
             	<c:FeaturedItems />
             </c:ComponentWrapper>
         </article>
-        <aside style="position:sticky; top: 0;">
+        <aside>
             <c:ComponentWrapper title="CART">
             	<c:PurchaseOrder type="Cart" />
             </c:ComponentWrapper>

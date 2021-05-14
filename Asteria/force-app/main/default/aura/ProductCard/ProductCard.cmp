@@ -12,7 +12,8 @@
             <li>Mining Site: {!v.item.Mining_Site_List__c}</li>
             <li>Mothership: {!v.item.Mothership__r.Name}</li>
         </ul>
+        <lightning:button class="btn" variant="base" label="ADD TO CART" onclick="{!c.addInventory}"/>
         </div>
-        <lightning:button label="Add To Cart" onclick="{!c.addInventory}"/>
+        
     </div>
 </aura:component>

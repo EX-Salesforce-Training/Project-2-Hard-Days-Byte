@@ -8,9 +8,21 @@ public without sharing class AuraStoreController {
                                                  WHERE Status__c='Approved' 
                                                  AND Number_of_Orders__c = 0 
                                                  ORDER BY Item_Price__c 
-                                                 ASC];
+                                                 DESC];
     	return availableInventoryList;
  	}
+    
+    @AuraEnabled
+    public static List<Inventory__c> getFeaturedInventory(){
+        List<Inventory__c> featuredInventoryList = [SELECT Id, Name, Mining_Site_List__c, Status__c, Mothership__r.Name, Ore_Type__c, Weight__c, Item_Price_Text__c 
+                                                 FROM Inventory__c 
+                                                 WHERE Status__c='Approved' 
+                                                 AND Number_of_Orders__c = 0 
+                                                 AND Featured__c = true
+                                                 ORDER BY Item_Price__c 
+                                                 DESC LIMIT 4];
+    	return featuredInventoryList;
+    }
     
     //Add InventoryListToCart
     @AuraEnabled
@@ -66,7 +78,16 @@ public without sharing class AuraStoreController {
     }
     
     //get all pictures from Single Item
-
+	
+    //send New Orders
+    @AuraEnabled
+    public static void sendNewOrders(List<Id> newOrders){
+        List<Purchase_Orders__c> pendingOrders = [SELECT status__c FROM Purchase_Orders__C WHERE id IN :newOrders];
+        for(Purchase_Orders__c order: pendingOrders){
+            order.Status__c = 'Pending';
+        }
+        update pendingOrders;
+    }
     
     //returns id of current User
     @testVisible

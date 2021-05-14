@@ -2,6 +2,8 @@
     <aura:dependency resource="markup://force:showToast" type="EVENT,COMPONENT" />
     <aura:registerEvent name="updateInventory" type="c:UpdateInventory"/>
     <aura:registerEvent name="updateRes" type="c:updateItemReservation"/>
+    <aura:registerEvent name="updateFeatured" type="c:UpdateFeaturedItems"/>
+    <aura:registerEvent name="updateOrders" type="c:UpdatePurchaseOrders"/>
     <aura:handler name="updateRes" action="{!c.doInit}"/>
     <aura:handler event="c:AddInventory" action="{!c.addInventory}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -33,18 +35,27 @@
                 		<div>
             				<lightning:datatable hideCheckboxColumn="true" data="{!v.new}" columns="{!v.orderColumns}" onrowaction="{!c.handleDeleteOrder}" keyField="id"/>
             			</div>
+                        <lightning:button label="Order" onclick="{!c.sendOrder}"/>
                 	</aura:set>
             	</aura:if>       
         	</lightning:tab>
         </aura:if>
         <aura:if isTrue="{!v.type =='Account'}">
             <lightning:tab label="Reserved Items" id="Reserved">
-            	Two Content !
+            	<div>
+            		<lightning:datatable hideCheckboxColumn="true" data="{!v.new}" columns="{!v.orderColumns}" onrowaction="{!c.handleDeleteOrder}" keyField="id"/>
+            	</div>
+                <lightning:button label="Order" onclick="{!c.sendOrder}"/>
         	</lightning:tab>
             <lightning:tab label="Pending Orders" id="Pending">
-            Three Content !
+            	<div>
+            		<lightning:datatable hideCheckboxColumn="true" data="{!v.pending}" columns="{!v.orderColumns}" keyField="id"/>
+            	</div>
         	</lightning:tab>
         	<lightning:tab label="Approved Orders" id="Approved">
+                <div>
+            		<lightning:datatable hideCheckboxColumn="true" data="{!v.approved}" columns="{!v.orderColumns}" keyField="id"/>
+            	</div>
             </lightning:tab>
         </aura:if>
     </lightning:tabset>
