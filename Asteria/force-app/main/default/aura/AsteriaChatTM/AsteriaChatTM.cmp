@@ -4,13 +4,21 @@
     <div id="container">
         <table>
             <tr>
-                <td colspan="2" id="chatArea">
-                    <lightning:textarea aura:id="chatTextbox" label="Answers appear here!" disabled="True" />
+                <th colspan="2" style="text-align:center;font-family:QuicksandBold;">You are connected to the 
+                    <span class="quote">"</span>Chat<span class="quote">"</span> Service!</th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="chatArea">
+                    	<table width="100%" aura:id="chatArea">
+                            
+                        </table>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td width="80%"><lightning:input name="Chatbox" value="{!v.userInput}" placeholder="Insert inquiry..." /></td>
-                <td width="20%" class="buttonTD"><lightning:button name="Submit" variant="Brand" label="Submit" /></td>
+                <td width="20%" class="buttonTD"><lightning:button name="Submit" variant="Brand" label="Submit" onclick="{!c.handleSubmit}" /></td>
             </tr>
         </table>
     </div>
