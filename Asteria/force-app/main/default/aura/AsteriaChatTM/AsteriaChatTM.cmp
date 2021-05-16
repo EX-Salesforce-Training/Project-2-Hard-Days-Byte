@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component controller="SupportController">
     <aura:attribute name="userInput" type="String" />
     
     <div id="container">

@@ -70,6 +70,12 @@ public class SupportControllerTest {
              
             System.assertEquals(3, listCases.size());
             System.assert(listFAQs.size() > 0);
+            
+            String custQuery = '.Where Asteria rocks?';
+            List<String> testChat = SupportController.getChat(custQuery);
+            
+            System.assert(testChat.size() == 3);
+            System.debug(testChat);
         }
     }
     
