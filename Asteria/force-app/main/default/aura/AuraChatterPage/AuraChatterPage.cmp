@@ -1,0 +1,5 @@
+<aura:component >
+    <c:ComponentWrapper title="Chatter">
+	<c:AuraChatter/>
+    </c:ComponentWrapper>
+</aura:component>

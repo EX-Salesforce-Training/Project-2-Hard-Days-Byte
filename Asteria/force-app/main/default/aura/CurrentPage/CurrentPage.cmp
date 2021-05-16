@@ -4,20 +4,20 @@
     <aura:if isTrue="{!v.currentPage == 'Landing'}">
         <c:LandingPage />
         <aura:set  attribute="else">
-        	<aura:if isTrue="{!v.currentPage == 'Register'}">
-                <!-- Add Register Page Here -->
+        	<aura:if isTrue="{!v.currentPage == 'Login'}">
+                <c:LoginPage/>
         		<aura:set  attribute="else">
         			<aura:if isTrue="{!v.currentPage == 'Homepage'}">
-    					<!-- Add Homepage Page Here -->
+                        <c:HomePage/>
         				<aura:set  attribute="else">
         					<aura:if isTrue="{!v.currentPage == 'Account'}">
-    							<!-- Add Account Page Here -->
+                                <c:AuraAccountPage/>
         						<aura:set  attribute="else">
         							<aura:if isTrue="{!v.currentPage == 'Lead'}">
     									<!-- Add Lead Page Here -->
         								<aura:set  attribute="else">
         									<aura:if isTrue="{!v.currentPage == 'Shop'}">
-    											<!-- Add Shop Page Here -->
+                                                <c:ShopPage/>
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">
                                                         <c:SupportPage />

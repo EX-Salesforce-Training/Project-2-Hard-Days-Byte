@@ -1,6 +1,6 @@
 ({
 	doInit: function(component, event, helper) {
-		component.set("v.isLogged", helper.isLogged(component));
+		helper.isLogged(component)
 	},
     handleClick: function(component, event, helper) {
         let source = event.target.innerHTML;

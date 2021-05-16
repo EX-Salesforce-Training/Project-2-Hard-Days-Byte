@@ -1,0 +1,5 @@
+<aura:component >
+    <c:ComponentWrapper title="Login">
+        <c:loginForm startUrl ="https://asteria1-developer-edition.na162.force.com/"/>
+	</c:ComponentWrapper>
+</aura:component>
