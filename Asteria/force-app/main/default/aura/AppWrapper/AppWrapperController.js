@@ -1,6 +1,6 @@
 ({
-    doInit:function(component, event, helper){
-        helper.initialize(component);
+    doInit: function(component, event, helper) {
+        helper.getLogged(component);
     },
 	handleCurrentPage: function(component, event, helper) {
         let currentPage = event.getParam("currentPage");

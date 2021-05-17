@@ -1,9 +1,5 @@
-<aura:component >
-    <aura:attribute name="currentUser" type="User"/>
-
-<force:recordData aura:id="recordLoader" recordId="{!$SObjectType.CurrentUser.Id}" 
-                  fields="Name" targetFields="{!v.currentUser}"/>
-    <h1>{!v.currentUser.Name}</h1>
+<aura:component>
+    
     <h1>WE ARE ASTERIA!</h1>
     <h1 class="subtitle">You can be Asteria too!</h1>
 	<c:ComponentWrapper>

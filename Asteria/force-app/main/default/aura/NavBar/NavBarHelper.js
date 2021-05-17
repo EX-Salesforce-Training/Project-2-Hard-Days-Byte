@@ -7,8 +7,8 @@
             if (state === "SUCCESS") {
                
                 let logged = response.getReturnValue();
+                console.log("getLogged: " + logged);
                 component.set("v.isLogged", logged);
-                console.log(logged);
             }
         });
         $A.enqueueAction(action);

@@ -7,10 +7,34 @@
     width:100%;
     min-height:50px;
 }
+.THIS .quote {
+    color:#bfbfbf;
+    font-size:10px;
+    vertical-align:super;
+}
 .THIS td {
     vertical-align:bottom;
 }
 .THIS .buttonTD {
     vertical-align:bottom;
     text-align:right;
+}
+.THIS #chatArea {
+    min-height:20vh;
+    max-height:20vh;
+    overflow:auto;
+}
+.THIS .qTD {
+	background-color:#999;
+    color:#eee;
+    font-family:QuicksandBold;
+    font-size:26px;
+    border-bottom:1px dashed #ccc;
+}
+.THIS .aTD {
+    background-color:#eee;
+    color:#333;
+    font-family:Quicksand;
+    font-size:16px;
+    border-bottom:1px solid #000;
 }

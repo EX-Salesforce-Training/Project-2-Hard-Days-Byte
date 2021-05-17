@@ -1,5 +1,4 @@
 .THIS {
-    
 }
 .THIS table {
     width:100%;
@@ -26,7 +25,10 @@
 }
 .THIS.wrapper {
     width:100%;
-    padding-top:10px;
+    min-height: 5vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
 }
 .THIS .unloggedLeft {
     float:left;

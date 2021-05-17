@@ -1,25 +1,19 @@
 ({
-    initialize:function(component){
-        const currentPage =component.get("c.getLogged");
-        currentPage.setCallback(this,function(response){
-            const state = response.getState();
-            console.log(state);
-            if(state=="SUCCESS"){
-                const isLogged = response.getReturnValue();
-                
-                if(isLogged){
+    getLogged: function(component) {
+        let action = component.get("c.getLogged");
+        action.setCallback(this, function(response) {
+            let state = response.getState();
+            if (state === "SUCCESS") {
+                let logged = response.getReturnValue();
+                component.set("v.isLogged", logged);
+                if (logged) {
                     component.set("v.currentPage", "Homepage");
-                } 
-                else{
+                } else {
                     component.set("v.currentPage", "Landing");
                 }
+                return logged;
             }
-            
         });
-        $A.enqueueAction(currentPage);
-        
-    },
-	helperMethod : function() {
-		
-	}
+        $A.enqueueAction(action);
+    }
 })
