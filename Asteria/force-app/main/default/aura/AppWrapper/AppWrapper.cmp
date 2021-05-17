@@ -5,9 +5,7 @@
 	<header>
         <!-- header and navbar go here -->
         <c:Header />
-        <div id="nav">
-            <c:NavBar />
-        </div>
+        <c:NavBar />
     </header>
     <div id="main">
         <!-- currentPage wrapper goes here -->
