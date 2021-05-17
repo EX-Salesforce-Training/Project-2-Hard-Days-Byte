@@ -13,6 +13,7 @@
                 component.set("v.leadInsert.Company", "");
                 component.set("v.leadInsert.Email", "");
                 component.set("v.leadInsert.Phone", "");
+                $A.get('e.force:refreshView').fire();
             }
         })
         $A.enqueueAction(method);
