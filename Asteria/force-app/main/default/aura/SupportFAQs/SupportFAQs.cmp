@@ -1,11 +1,25 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Support FAQS Component
+// Author: David J. Sellinger
+// Created: 2021-05-07
+// Updated: 2021-05-16
+// Description: Shows the Support_FAQ__c records
+//				that are designated to be shown on
+//				this page.
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component controller="SupportController">
     <aura:attribute name="faqList" type="Support_FAQ__c[]" />
     <aura:handler name="init" value="{!this}" action="{!c.FetchFAQList}" />
     <div class="introText">Hello there! If you have a question that you would like to ask our support team,
         we kindly ask that you first read through the Frequently Asked Questions listed on this page. If these 
         are unable to answer your question(s), you may also try to find answers through the Asteria Chat™ shown
-        to the right. If this still doesn't answer your question(s), you may also click the button on the lower-
-    	right of the screen to open a new case. Thank you!</div>
+        to the right. If this still doesn't answer your question(s), you may also click the button on the right
+        side of the screen to open a new case. Thank you!</div>
     <lightning:accordion>
         <aura:iteration items="{!v.faqList}" var="faq">
             <lightning:recordViewForm recordId="{!faq.Id}" objectApiName="Support_FAQ__c">

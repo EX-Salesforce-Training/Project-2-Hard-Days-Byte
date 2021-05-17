@@ -1,3 +1,17 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - AsteriaChatTM
+// Author: David J. Sellinger
+// Created: 2021-05-14
+// Updated: 2021-05-16
+// Description: Asteria ChatTM! For all of your
+//				chatting needs! (Disclaimer: not
+//				actually a chat)
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component controller="SupportController">
     <aura:attribute name="userInput" type="String" />
     

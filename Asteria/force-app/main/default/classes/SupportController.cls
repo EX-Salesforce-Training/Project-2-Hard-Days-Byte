@@ -1,3 +1,14 @@
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Support Controller
+// Author: David J. Sellinger
+// Created: 2021-05-07
+// Updated: 2021-05-16
+// Description: Server-side controller for all comp-
+// 				onents on the Asteria Support page.
+//
+////////////////////////////////////////////////////
+
 public class SupportController {
     @AuraEnabled
     public static Map<String,List<String>> getInitialValues() {
@@ -51,9 +62,25 @@ public class SupportController {
     }
     
     @AuraEnabled
-    public static void saveCase(Case newCase) {
+    public static List<Case> getAllCases() {
+        String[] fieldsToCheck = new String[]{'Id', 'CaseNumber', 'Subject', 'Product__c', 'IsClosed'};
+            Map<String,Schema.SObjectField> fieldDescribeTokens = Schema.SObjectType.Case.fields.getMap();
+        
+        for(String field: fieldsToCheck) {
+            if(!fieldDescribetokens.get(field).getDescribe().isAccessible()) {
+                throw new System.NoAccessException();
+            }
+        }
+        
+        Id userConId = getConId();
+        return [SELECT Id, CaseNumber, Subject, Product__c, IsClosed FROM Case WHERE ContactId = :userConId ORDER BY CaseNumber DESC];
+    }
+    
+    @AuraEnabled
+    public static Case saveCase(Case newCase) {
         newCase.ContactId = getConId();
         insert newCase;
+        return newCase;
     }
     
     @AuraEnabled
