@@ -1,9 +1,10 @@
 <aura:component controller="NavBarController">
+	<aura:attribute name="userType" type="String" />
     <aura:attribute name="isLogged" type="boolean" default="False" />
     <aura:registerEvent name="SendCurrentPage" type="c:NavBarClick" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
-    <aura:if isTrue="{!!v.isLogged}">
+    <aura:if isTrue="{!v.isLogged}">
         <div class="wrapper">
             <table>
                 <tr>
