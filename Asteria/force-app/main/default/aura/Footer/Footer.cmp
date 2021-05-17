@@ -1,3 +1,15 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Footer
+// Author: David J. Sellinger
+// Created: 2021-05-14
+// Updated: 2021-05-14
+// Description: Super simple footer.
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component >
     <aura:attribute name="year" type="String" default="2021" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />

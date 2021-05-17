@@ -7,10 +7,51 @@
     width:100%;
     min-height:50px;
 }
+.THIS .slds-form-element {
+    max-height:32px;
+}
+.THIS .slds-form-element__control {
+    margin-top:-32px;
+}
+.THIS .quote {
+    color:#bfbfbf;
+    font-size:10px;
+    vertical-align:super;
+}
 .THIS td {
     vertical-align:bottom;
 }
 .THIS .buttonTD {
     vertical-align:bottom;
     text-align:right;
+}
+.THIS #chatArea {
+    min-height:25vh;
+    max-height:25vh;
+    overflow:auto;
+}
+.THIS .qTD {
+	background-color:#999;
+    color:#eee;
+    font-family:QuicksandBold;
+    font-size:26px;
+    border-bottom:1px dashed #ccc;
+    padding:0 5px;
+}
+.THIS .aTD {
+    background-color:#eee;
+    color:#333;
+    font-family:Quicksand;
+    font-size:16px;
+    border-bottom:1px solid #000;
+    padding:0 5px;
+}
+/* SPINNER */
+.THIS .spinnerHolder{
+    position:relative;
+    display:inline-block;
+    margin:auto;
+    margin-top:50px;
+    width:100%;
+    height:80px;
 }

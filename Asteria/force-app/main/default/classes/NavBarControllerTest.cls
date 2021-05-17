@@ -1,3 +1,14 @@
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Navigation Bar Controller Test
+// Author: David J. Sellinger
+// Created: 2021-05-13
+// Updated: 2021-05-13
+// Description: Test for the Navigation Bar Control-
+// 				ler.
+//
+////////////////////////////////////////////////////
+
 @IsTest
 public class NavBarControllerTest {
 	
