@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="Update the case lists shown on Support Page after case created." />

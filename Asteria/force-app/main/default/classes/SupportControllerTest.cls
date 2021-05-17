@@ -1,3 +1,13 @@
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Support Controller Test
+// Author: David J. Sellinger
+// Created: 2021-05-08
+// Updated: 2021-05-16
+// Description: Test for the Support Controller.
+//
+////////////////////////////////////////////////////
+
 @IsTest
 public class SupportControllerTest {
     
@@ -52,12 +62,15 @@ public class SupportControllerTest {
             f.Tags__c = 'Asteria';
             testFAQList.add(f);
         }
+        Case c = new Case();
+        testCaseList.add(c);
         
         insert testCaseList;
         insert testFAQList;
         
         System.runAs(partnerUser) {
             List<Case> listCases = SupportController.getCases();
+            List<Case> allCases = SupportController.getAllCases();
             List<Support_FAQ__c> listFAQs = SupportController.getFAQs();
             System.debug('listCases: ' + listCases);
             System.debug('listFAQs: ' + listFAQs);
@@ -67,9 +80,16 @@ public class SupportControllerTest {
             
             Case newCase = new Case();
             SupportController.saveCase(newCase);
-             
+            
             System.assertEquals(3, listCases.size());
+            System.assertEquals(20, allCases.size());
             System.assert(listFAQs.size() > 0);
+            
+            String custQuery = '.Where Asteria rocks?';
+            List<String> testChat = SupportController.getChat(custQuery);
+            
+            System.assert(testChat.size() == 3);
+            System.debug(testChat);
         }
     }
     
@@ -92,7 +112,7 @@ public class SupportControllerTest {
         );
         
         Database.insert(otherUser);
-       
+        
         List<Case> testCaseList = new List<Case>();
         List<Support_FAQ__c> testFAQList = new List<Support_FAQ__c>();
         
@@ -119,8 +139,11 @@ public class SupportControllerTest {
                 System.debug('The following exception has occurred: ' + e.getMessage());
             }
             
+            try {
+                List<Case> allCases = SupportController.getAllCases();
+            } catch(System.NoAccessException e) {
+                System.debug('The following exception has occurred: ' + e.getMessage());
+            } 
         }
-        
-    }
-    
+    }   
 }
