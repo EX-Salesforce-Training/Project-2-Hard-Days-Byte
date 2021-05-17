@@ -14,6 +14,7 @@
 
 <aura:component controller="SupportController">
     <aura:attribute name="userInput" type="String" />
+    <aura:attribute name="spinner" type="Boolean" default="false" />
     
     <div id="container">
         <table>
@@ -24,7 +25,12 @@
             <tr>
                 <td colspan="2">
                     <div id="chatArea">
-                    	<table width="100%" aura:id="chatArea">
+                        <aura:if isTrue="{!v.spinner}">
+                            <div class="spinnerHolder">
+                                <lightning:spinner alternativeText="Loading" size="medium" />
+                            </div>
+                        </aura:if>
+                        <table width="100%" aura:id="chatArea">
                             
                         </table>
                     </div>
