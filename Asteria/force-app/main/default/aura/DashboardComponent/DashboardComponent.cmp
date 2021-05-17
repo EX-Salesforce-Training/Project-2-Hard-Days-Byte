@@ -1,0 +1,3 @@
+<aura:component controller="AuraAccountController" implements="force:appHostable,force:hasRecordId" access="global">
+   <wave:waveDashboard dashboardId="01Z5e000000tDjKEAU" showTitle="true" height = "475px" />
+</aura:component>
