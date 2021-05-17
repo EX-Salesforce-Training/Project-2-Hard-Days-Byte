@@ -1,0 +1,19 @@
+.THIS {
+    
+}
+.THIS.wrapper {
+    width:100%;
+}
+.THIS .titleWrapper {
+    width:20%;
+    text-align:right;
+    float:left;
+    line-height:46px;
+}
+.THIS .quoteWrapper {
+    float:right;
+    padding-top:50px;
+    width:30%;
+    text-align:center;
+    line-height:46px;
+}

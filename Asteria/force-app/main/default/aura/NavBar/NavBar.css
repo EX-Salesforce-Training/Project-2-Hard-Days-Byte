@@ -1,0 +1,39 @@
+.THIS {
+}
+.THIS table {
+    width:100%;
+}
+.THIS td {
+    width:auto;
+    text-align:center;
+}
+/*.THIS button {
+    background-color:#000;
+    color:#f9e9ff;
+    border:none;
+    font-family:SyncopateBold;
+    cursor:pointer;
+    font-size:40px;
+    text-transform:uppercase;
+}*/
+.THIS a {
+    color:#f9e9ff;
+    text-transform:uppercase;
+}
+.THIS a:hover, .THIS a:active, .THIS a:focus {
+    color:#f9e9ff;
+}
+.THIS.wrapper {
+    position:sticky;
+    top:0;
+    width:100%;
+    padding-top:10px;
+}
+.THIS .unloggedLeft {
+    float:left;
+    padding-left:10px;
+}
+.THIS .unloggedRight {
+    float:right;
+    padding-right:10px;
+}
