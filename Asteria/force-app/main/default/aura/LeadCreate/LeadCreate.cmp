@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="LeadCreateController">
+    <aura:attribute name="leadInsert" type="Lead" default="{'sobjectType':'lead', 'FirstName':'', 'LastName':'','Company':'','Email':'', 'Phone':''}"/>
+    <div>
+        <div>
+            <label for="FirstName">First Name</label>
+            <div>
+                <ui:inputText aura:id="FirstName" value="{!v.leadInsert.FirstName}" placeholder="First Name"/>
+            </div>
+        </div>
+        <div>
+            <label for="LastName">Last Name</label>
+            <div>
+                <ui:inputText aura:id="LastName" value="{!v.leadInsert.LastName}" placeholder="Last Name"/>
+            </div>
+        </div>
+        <div>
+            <label for="Company">Company</label>
+            <div>
+                <ui:inputText aura:id="Company" value="{!v.leadInsert.Company}" placeholder="Company"/>
+            </div>
+        </div>
+        <div>
+            <label for="Email">Email</label>
+            <div>
+                <ui:inputText aura:id="Email" value="{!v.leadInsert.Email}" placeholder="Email"/>
+            </div>
+        </div>
+        <div>
+            <label for="Phone">Phone</label>
+            <div>
+                <ui:inputText aura:id="Phone" value="{!v.leadInsert.Phone}" placeholder="Phone"/>
+            </div>
+        </div>
+        <div>
+            <div>
+                <ui:button label="Save" press="{!c.create}"/>
+            </div>
+        </div>
+    </div>
+	
+</aura:component>

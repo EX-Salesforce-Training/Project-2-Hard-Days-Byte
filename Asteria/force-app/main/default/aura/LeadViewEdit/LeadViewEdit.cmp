@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="LeadController">
+	<aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <!--<aura:attribute name="saveDraftValues" type="Object"/>-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="force:refreshView" action="{!c.init}" />
+    
+    <div>
+        <lightning:datatable data="{!v.mydata}"
+        					 columns="{!v.mycolumns}"
+        					 keyField="Id"
+        					 hideCheckboxColumn="true"
+                             onsave="{!c.handleSave}"/>
+    </div>
+</aura:component>
