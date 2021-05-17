@@ -1,3 +1,16 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Support Page Component
+// Author: David J. Sellinger
+// Created: 2021-05-07
+// Updated: 2021-05-16
+// Description: Page for all Asteria Support compon-
+// 				ents.
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component >
 	<section style="display:flex;">
     	<article style="flex-grow:1;margin:10px;">
@@ -9,12 +22,13 @@
             <c:ComponentWrapper title="Asteria Chat™">
                 <c:AsteriaChatTM />
             </c:ComponentWrapper>
-        	<c:ComponentWrapper title="Open Cases">
-                <c:OpenCases />
-            </c:ComponentWrapper>
             <c:ComponentWrapper title="Question still not answered?">
                 <c:CreateCase />
             </c:ComponentWrapper>
+        	<c:ComponentWrapper title="Open Cases">
+                <c:OpenCases />
+            </c:ComponentWrapper>
+            
         </aside>
     </section>
 </aura:component>

@@ -1,5 +1,5 @@
 <aura:component controller="NavBarController" implements="forceCommunity:themeLayout" access="global" description="Asteria Theme">
-    <aura:attribute name="currentPage" type="String" default="Landing" />
+    <aura:attribute name="currentPage" type="String" default="" />
     <aura:handler name="SendCurrentPage" event="c:NavBarClick" action="{!c.handleCurrentPage}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<header>
