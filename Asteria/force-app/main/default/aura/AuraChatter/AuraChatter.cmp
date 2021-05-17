@@ -3,7 +3,7 @@
     <aura:attribute name="options" type="List" />
     <aura:attribute name="type" type="String" default="News" description="The type of feed" access="GLOBAL"/>
     <aura:attribute name="types" type="String[]"
-                    default="Bookmarks,Company,DirectMessages,Feeds,Groups,Home,News,Record,To,Topics,UserProfile"
+                    default="Company,Feeds,To"
                     description="A list of feed types"/>
     <h3>My Feeds</h3>
     <lightning:select aura:id="typeSelect" onchange="{!c.onChangeType}" label="Type" name="typeSelect">

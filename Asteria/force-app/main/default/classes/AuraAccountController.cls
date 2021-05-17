@@ -21,6 +21,7 @@ public class AuraAccountController {
         Id cardPayment = [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccount].Id;
         return cardPayment;
     } **/
+    /**
    @AuraEnabled
     public static Id runAsPartner(){
         try{
@@ -40,7 +41,7 @@ public class AuraAccountController {
         
         return null;
         
-    }
+    }**/
     /**
       @AuraEnabled
     public static Id runAsPartnerPayment(){

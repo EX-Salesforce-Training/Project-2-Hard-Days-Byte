@@ -38,8 +38,9 @@ public class AccountTest {
        		Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
             CardPayment__c accountPayment = new CardPayment__c();
             accountPayment.account__c = currentUserAccountid;
-        //    cardPayments= [SELECT id FROM CardPayment__c WHERE Account__c= :currentUserAccountid].Id;
-         //   System.assertEquals(1, );
+            insert accountPayment;
+         	System.assertEquals(currentUserAccountID,AuraAccountController.getAccountID());
+            System.assertEquals(accountPayment.id , AuraPaymentController.getAccountPayment());
            
         }
     }

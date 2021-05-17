@@ -5,4 +5,7 @@
     <c:ComponentWrapper title="Payment ">
 	<c:CardPayment/>
     </c:ComponentWrapper>
+    <c:ComponentWrapper title="Chatter ">
+	<c:AuraChatter/>
+    </c:ComponentWrapper>
 </aura:component>
