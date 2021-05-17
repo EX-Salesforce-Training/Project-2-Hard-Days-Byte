@@ -3,17 +3,24 @@
 }
 .THIS.wrapper {
     width:100%;
+    min-height: 25vh;
+   	background-image:url("/resource/HeaderImgFull");
+    /*background-attachment:fixed;*/
+    background-size:100% 110%;
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-color:#000;
+    display: flex;
+    justify-content: space-between;
 }
 .THIS .titleWrapper {
-    width:20%;
+    width:fit-content;
     text-align:right;
-    float:left;
     line-height:46px;
 }
 .THIS .quoteWrapper {
-    float:right;
-    padding-top:50px;
-    width:30%;
+    align-self: flex-end;
+    width:40%;
     text-align:center;
     line-height:46px;
 }

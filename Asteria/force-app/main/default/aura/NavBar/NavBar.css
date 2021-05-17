@@ -24,10 +24,11 @@
     color:#f9e9ff;
 }
 .THIS.wrapper {
-    position:sticky;
-    top:0;
     width:100%;
-    padding-top:10px;
+    min-height: 5vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
 }
 .THIS .unloggedLeft {
     float:left;
