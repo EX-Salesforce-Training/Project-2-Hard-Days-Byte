@@ -1,18 +1,6 @@
-<!--
-////////////////////////////////////////////////////
-//
-// Name: Asteria - Create Case Component
-// Author: David J. Sellinger
-// Created: 2021-05-08
-// Updated: 2021-05-16
-// Description: Allows customer to open a case.
-//
-////////////////////////////////////////////////////
--->
-
 <aura:component controller="SupportController">
     <!--       HEAD       -->
-    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <aura:attribute name="isOpen" type="boolean" default="false" />  
     <aura:attribute name="userName" type="String" default="CustomerName" />
     <aura:attribute name="productValues" type="String[]" />
     <aura:attribute name="typeValues" type="String[]" />
@@ -24,8 +12,7 @@
                                                         'Reason': '',
                                                         'Subject': '',
                                                         'Description': ''}" />
-    <aura:registerEvent name="UpdateCases" type="c:UpdateCaseList" />
-    <aura:handler name="init" value="{!this}" action="{!c.DoInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <!--////// HEAD //////-->
     
     <div class="wrapper">
