@@ -24,7 +24,7 @@
             			<div>
         					<lightning:datatable hideCheckboxColumn="true" data="{!v.shoppingList}" columns="{!v.columns}" onrowaction="{!c.handleDelete}" keyField="id"/>
         				</div>
-                    	<lightning:button label="Reserve" onclick="{!c.saveInventory}"/>
+                    	<lightning:button class="purpleBtn" label="Reserve" onclick="{!c.saveInventory}"/>
                 	</aura:set>
             	</aura:if>
         	</lightning:tab>
@@ -35,7 +35,7 @@
                 		<div>
             				<lightning:datatable hideCheckboxColumn="true" data="{!v.new}" columns="{!v.orderColumns}" onrowaction="{!c.handleDeleteOrder}" keyField="id"/>
             			</div>
-                        <lightning:button label="Order" onclick="{!c.sendOrder}"/>
+                        <lightning:button class="purpleBtn" label="Order" onclick="{!c.sendOrder}"/>
                 	</aura:set>
             	</aura:if>       
         	</lightning:tab>
@@ -45,7 +45,7 @@
             	<div>
             		<lightning:datatable hideCheckboxColumn="true" data="{!v.new}" columns="{!v.orderColumns}" onrowaction="{!c.handleDeleteOrder}" keyField="id"/>
             	</div>
-                <lightning:button label="Order" onclick="{!c.sendOrder}"/>
+                <lightning:button class="purpleBtn" label="Order" onclick="{!c.sendOrder}"/>
         	</lightning:tab>
             <lightning:tab label="Pending Orders" id="Pending">
             	<div>

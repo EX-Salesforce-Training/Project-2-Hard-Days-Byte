@@ -20,6 +20,7 @@
             if(state === "SUCCESS"){
             	const orders = response.getReturnValue();
                 if(orders.New){
+                    console.log(orders.New);
                 	orders.New = orders.New.map(item => {
                     	item.iconName =  "utility:delete";
                     	item.buttonName = "Delete";
@@ -27,6 +28,7 @@
                     	item.MiningSite = item.Inventory__r.Mining_Site_List__c;
                     	return item;
                 	});
+                    console.log(orders.New);
                     component.set("v.new", orders.New);
                 }else{
                     component.set("v.new", []);
