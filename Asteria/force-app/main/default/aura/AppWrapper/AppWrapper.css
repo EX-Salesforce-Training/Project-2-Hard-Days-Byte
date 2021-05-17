@@ -27,25 +27,14 @@
     src: url(/resource/QuicksandBold);
 }
 header.THIS {
-    height:25vh;
-    background-image:url("/resource/headerimg");
-    /*background-attachment:fixed;*/
-    background-size:100% 75%;
-    background-repeat:no-repeat;
-    background-color:#000;
     color:#f9e9ff;
+    height: fit-content;
 }
 #main.THIS {
     background-image:url("/resource/bodybackground");
     background-attachment:fixed;
     background-size:cover;
     min-height:75vh;
-}
-.THIS #nav {
-    display:inline-block;
-    width:100%;
-    min-height:5vh;
-    background-color:#020305;
 }
 footer.THIS {
     background-color:#000;
@@ -91,14 +80,14 @@ footer.THIS {
 
 @media screen and (max-width:1000){
     .THIS h1 {
-    font-size: 48px;
+    font-size: 40px;
 }
 
 .THIS h2 {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .THIS h3 {
-    font-size: 22px;
+    font-size: 20px;
 }
 }

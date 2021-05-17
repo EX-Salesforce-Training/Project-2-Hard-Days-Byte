@@ -21,6 +21,10 @@
         										<aura:set  attribute="else">
         											<aura:if isTrue="{!v.currentPage == 'Support'}">
                                                         <c:SupportPage />
+                                                        <aura:set attribute="else">
+                                                        <aura:if isTrue="{!v.currentPage == ''}">
+                                                            </aura:if>
+                                                        </aura:set>
     												</aura:if>
         										</aura:set>
     										</aura:if>

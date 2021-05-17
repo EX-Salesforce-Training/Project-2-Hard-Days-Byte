@@ -1,5 +1,20 @@
-<aura:component >
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - AsteriaChatTM
+// Author: David J. Sellinger
+// Created: 2021-05-14
+// Updated: 2021-05-16
+// Description: Asteria ChatTM! For all of your
+//				chatting needs! (Disclaimer: not
+//				actually a chat)
+//
+////////////////////////////////////////////////////
+-->
+
+<aura:component controller="SupportController">
     <aura:attribute name="userInput" type="String" />
+    <aura:attribute name="spinner" type="Boolean" default="false" />
     
     <div id="container">
         <table>
@@ -10,7 +25,12 @@
             <tr>
                 <td colspan="2">
                     <div id="chatArea">
-                    	<table width="100%" aura:id="chatArea">
+                        <aura:if isTrue="{!v.spinner}">
+                            <div class="spinnerHolder">
+                                <lightning:spinner alternativeText="Loading" size="medium" />
+                            </div>
+                        </aura:if>
+                        <table width="100%" aura:id="chatArea">
                             
                         </table>
                     </div>
@@ -18,7 +38,7 @@
             </tr>
             <tr>
                 <td width="80%"><lightning:input name="Chatbox" value="{!v.userInput}" placeholder="Insert inquiry..." /></td>
-                <td width="20%" class="buttonTD"><lightning:button name="Submit" variant="Brand" label="Submit" onclick="{!c.handleSubmit}" /></td>
+                <td width="20%" class="buttonTD"><lightning:button name="Submit" variant="Brand" label="Submit" onclick="{!c.HandleSubmit}" /></td>
             </tr>
         </table>
     </div>
