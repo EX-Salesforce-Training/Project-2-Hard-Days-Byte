@@ -1,10 +1,13 @@
+.THIS {
+    
+}
 .THIS.wrapper {
     width:100%;
     min-height: 25vh;
    	background-image:url("/resource/HeaderImgFull");
     /*background-attachment:fixed;*/
-    background-size:1500px 600px;
-    background-position: center -375px;
+    background-size:100% 110%;
+    background-position: center center;
     background-repeat:no-repeat;
     background-color:#000;
     display: flex;
