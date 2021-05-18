@@ -1,5 +1,5 @@
-# The Language Emporium
-### A place for learners and tutors to meet up and find educational content for learning new languages
+# Asteria Deep Space Mining
+### A Partner Portal for Asteria Deep Space Mining to register Leads, interact with Asteria and shop for Ore.
 
 #### Built with Salesforce
 
