@@ -1,5 +1,5 @@
 .THIS article .cComponentWrapper {
-    max-width:1250px;
+    max-width:60vw;
 }
 .THIS .cComponentWrapper:nth-child(2) h2 {
     font-family:QuicksandBold;

@@ -1,7 +1,7 @@
 <aura:component implements="force:appHostable">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="options" type="List" />
-    <aura:attribute name="type" type="String" default="News" description="The type of feed" access="GLOBAL"/>
+    <aura:attribute name="type" type="String" default="To" description="The type of feed" access="GLOBAL"/>
     <aura:attribute name="types" type="String[]"
                     default="Bookmarks,Company,DirectMessages,Feeds,Groups,Home,News,Record,To,Topics,UserProfile"
                     description="A list of feed types"/>

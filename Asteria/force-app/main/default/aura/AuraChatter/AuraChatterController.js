@@ -10,6 +10,10 @@
             opts.push({label: types[i], value: types[i], selected: types[i] === type});
         }
         component.set("v.options", opts);
+        $A.createComponent("forceChatter:feed", {"type": type}, function(feed) {
+            var feedContainer = component.find("feedContainer");
+            feedContainer.set("v.body", feed);
+        });
     },
 
   onChangeType : function(component, event, helper) {

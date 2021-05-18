@@ -620,6 +620,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>CardPayment__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Crew_Members__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

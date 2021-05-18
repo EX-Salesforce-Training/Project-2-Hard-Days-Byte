@@ -538,6 +538,10 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>CardPayment__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Crew_Members__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>

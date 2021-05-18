@@ -15,8 +15,9 @@
     <aura:attribute name="pending" type="List"/>
     <aura:attribute name="approved" type="List"/>   
         
-    <lightning:tabset selectedTabId="Cart">
+    
         <aura:if isTrue="{!v.type == 'Cart'}">
+          <lightning:tabset selectedTabId="Cart">
             <lightning:tab label="Shopping Cart" id="Cart">
             	<aura:if isTrue="{!empty(v.shoppingList)}">
             		<h4 class="listError">List is currently empty</h4>
@@ -39,8 +40,10 @@
                 	</aura:set>
             	</aura:if>       
         	</lightning:tab>
+          </lightning:tabset>
         </aura:if>
         <aura:if isTrue="{!v.type =='Account'}">
+         <lightning:tabset selectedTabId="Reserved">
             <lightning:tab label="Reserved Items" id="Reserved">
             	<div>
             		<lightning:datatable hideCheckboxColumn="true" data="{!v.new}" columns="{!v.orderColumns}" onrowaction="{!c.handleDeleteOrder}" keyField="id"/>
@@ -57,6 +60,7 @@
             		<lightning:datatable hideCheckboxColumn="true" data="{!v.approved}" columns="{!v.orderColumns}" keyField="id"/>
             	</div>
             </lightning:tab>
+          </lightning:tabset>
         </aura:if>
-    </lightning:tabset>
+
 </aura:component>
