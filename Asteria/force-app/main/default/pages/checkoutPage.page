@@ -1,10 +1,10 @@
 <apex:page controller="PurchaseOrderCheckoutController">
     <h1>Your Shopping Cart</h1>
-    <apex:form>
+    <apex:form >
         <apex:pageBlock title="Order Details">
             <apex:repeat value="{!PurchaseOrders}" var="o">
                 <apex:pageBlock >
-                    <apex:pageBlockSection>
+                    <apex:pageBlockSection >
                         <apex:outputField value="{!o.Name}"/>
                         <apex:outputField value="{!o.Account__c}"/>
                         <apex:outputField value="{!o.Inventory__c}"/>
