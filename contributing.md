@@ -1,4 +1,4 @@
-# Contributing to Project-0
+# Contributing to Project-2
 
 > - Please Read All Instructions to contribute to the project.
 > - No project should be submitting a pull request to the main branch.
