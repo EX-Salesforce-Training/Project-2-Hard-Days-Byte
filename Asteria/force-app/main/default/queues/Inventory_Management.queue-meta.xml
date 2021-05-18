@@ -2,13 +2,6 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>Inventory Management</name>
-    <queueMembers>
-        <roles>
-            <role>Space_CFO</role>
-            <role>Space_VP_of_Marketing</role>
-            <role>Space_VP_of_Sales</role>
-        </roles>
-    </queueMembers>
     <queueSobject>
         <sobjectType>Inventory__c</sobjectType>
     </queueSobject>

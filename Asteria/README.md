@@ -1,18 +1,53 @@
-# Salesforce DX Project: Next Steps
+# The Language Emporium
+### A place for learners and tutors to meet up and find educational content for learning new languages
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+#### Built with Salesforce
 
-## How Do You Plan to Deploy Your Changes?
+## Languages and Technologies
+ - Salesforce Platform
+ - Apex
+ - Aura Lightning Components
+ - Javascript
+ - CSS
+ - HTML
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## Version Control
+ - Git
+ - Github
+ - Salesforce Developer Experience CLI and Visual Studio Code Extension
 
-## Configure Your Salesforce DX Project
+## [Documentation]('https://github.com/EX-Salesforce-Training/Project-2-Hard-Days-Byte/wiki/Documentation')
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## Setup
 
-## Read All About It
+### Login to Org and Push Source
+ - For this application, you will need a fresh playground or scratch org to work in. 
+ - After creating the playground make sure you have the username from this specific playground and create a new     password(Get Your Login Credentials from Playground Starter page).
+ - Turn on Digital Experiences in this Playground
+    - Type Digital Experiences in Quick Find
+    - Click on Digital Experiences Settings
+    - Enable Digital Experiences
+    - choose a unique domain name
+ - Clone this repo to a local instance
+ - Open the Asteria folder in Visual Studio Code
+ - Use SFDX to authorize an organization in this project
+ - Use your playground specific username and password to log in
+ - USe SFDX to deploy the project to your org (Deploy this source to Org)
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+ ### Setup Digital Experience
+ - In Digital Experiences create a new site
+    - From Setup go to Digital Experiences -> Sites
+    - Create a New Site by clicking New
+    - Scroll down and click Custom Build Your Own
+    - Click "Get Started"
+    - Name the site "Asteria"
+ - Change the template to "AppWrapper"
+    - From Asteria Digital Experience Workspace open Builder
+    - Click gear on left to open up settings and then click on Themes
+    - Click configure and change both the Login and Home Page to "AppWrapper"
+ - Allow guests to view entire site
+    - In General Settings in the App Builder enable Public Access(Public can access the site)
+ - Activating the site will open it to for users
+    - Move to Administration in the Workspace and click activate
+## Setup Users
+
