@@ -2,5 +2,5 @@
 <StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
     <cacheControl>Public</cacheControl>
     <contentType>image/png</contentType>
-    <description>img for header yaay</description>
+    <description>img for header yaaay</description>
 </StaticResource>

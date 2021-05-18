@@ -28,7 +28,7 @@
     <aura:handler event="c:setExpId" action="{!c.setExpId}"/>    
     <aura:dependency resource="c:setExpId" type="EVENT"/>  
     
-    <div>
+    <div class="loginWrapper">
         <aura:renderIf isTrue="{!v.isUsernamePasswordEnabled}">
             <span>
                 <aura:renderIf isTrue="{!v.showError}">

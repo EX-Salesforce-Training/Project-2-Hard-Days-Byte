@@ -18,8 +18,8 @@ public class LeadController {
     }
     
     //method for saving edited leads
-    @AuraEnabled
-    public static List<Lead> updateLeadEdit(List<Lead> editLeadList){
+    //@AuraEnabled
+    //public static List<Lead> updateLeadEdit(List<Lead> editLeadList){
         //List<Lead> leads = [SELECT Id FROM  WHERE ]
         
        //for(List <Lead> i:editLeadList){
@@ -28,10 +28,10 @@ public class LeadController {
             //}
         //}
         //system.debug('entered method');
-        update editLeadList;
-        system.debug('updated '+ editLeadList);
+        //update editLeadList;
+        //system.debug('updated '+ editLeadList);
 		        
-        return editLeadList;
-    }
+        //return editLeadList;
+    //}
 
 }
