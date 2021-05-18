@@ -1,5 +1,5 @@
 ({
-	HandleSubmit: function(component, event, helper) {
+    HandleSubmit: function(component, event, helper) {
         component.find("chatArea").getElement().innerHTML = "";
         helper.GetAnswers(component);
     }
