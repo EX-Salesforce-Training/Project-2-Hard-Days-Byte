@@ -1,3 +1,18 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Navigation Bar Component
+// Author: David J. Sellinger
+// Created: 2021-05-13
+// Updated: 2021-05-15
+// Description: Creates a navigation bar to be shown
+//				underneath the header. Links shown
+//				are dependent on whether or not
+//				customer is logged in.
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component controller="NavBarController">
 	<aura:attribute name="userType" type="String" />
     <aura:attribute name="isLogged" type="boolean" default="False" />

@@ -1,7 +1,7 @@
 .THIS {
     color:#000;
 }
-.THIS header {
+.THIS header, .THIS footer {
     background-color:#000;
 }
 .THIS.wrapper {
@@ -20,7 +20,9 @@
     padding:15px;
     margin-bottom:45px;
 }
-
+.THIS .slds-button_neutral:hover {
+    background-color:#bbb;
+}
 /******* *CREATE CASE MODAL* *******/
 .THIS #modal-heading-01 {
     font-family:SyncopateBold;
@@ -48,9 +50,6 @@
     font-size:28px;
     color:#888;
 }
-/*.THIS .wrapper {
-display:block;
-}*/
 .THIS table {
     margin-top:-15 px;
 }
@@ -76,17 +75,6 @@ display:block;
     padding-left:15px;
     width:95%;
 }
-/*.THIS .slds-form-element {
-    max-height:40px;
-}*/
-/*.THIS .gridLeft {
-    float:left;
-    width:50%;
-}
-.THIS .gridRight {
-    float:right;
-    width:50%;
-}*/
 .THIS .instruction {
     font-family:Quicksand;
     font-size:14px;

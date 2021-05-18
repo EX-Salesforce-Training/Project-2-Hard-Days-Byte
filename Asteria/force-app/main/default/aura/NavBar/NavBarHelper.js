@@ -3,7 +3,9 @@
         let action = component.get("c.getLogged");
         action.setCallback(this, function(response) {
             let state = response.getState();
+            console.log(state);
             if (state === "SUCCESS") {
+               
                 let logged = response.getReturnValue();
                 console.log("getLogged: " + logged);
                 component.set("v.isLogged", logged);
