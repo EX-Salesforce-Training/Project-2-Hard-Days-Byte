@@ -1,17 +1,29 @@
 <aura:component >
-    <c:ComponentWrapper title="Account Information">
-	<c:AccountComponent/>
-    </c:ComponentWrapper>
-    <c:ComponentWrapper title="Payment">
-	<c:CardPayment/>
-    </c:ComponentWrapper>
-    <c:ComponentWrapper title="Chatter">
-	<c:AuraChatter/>
-    </c:ComponentWrapper>
-    <c:ComponentWrapper title="Open Cases">
-        <c:OpenCases />
-    </c:ComponentWrapper>
-    <c:ComponentWrapper title="Purchase Orders">
-        <c:PurchaseOrder type="Account" />
-    </c:ComponentWrapper>
+    <section>
+    	<article>
+    		<c:ComponentWrapper title="Purchase Orders">
+        		<c:PurchaseOrder type="Account" />
+    		</c:ComponentWrapper>
+    	
+    		<c:ComponentWrapper title="Open Cases">
+        		<c:OpenCases />
+    		</c:ComponentWrapper>
+     	</article>
+        <aside>
+    		<c:ComponentWrapper title="Account Information">
+				<c:AccountComponent/>
+    		</c:ComponentWrapper>
+            
+    		<c:ComponentWrapper title="Chatter">
+				<c:AuraChatter/>
+   		 	</c:ComponentWrapper>
+      
+    		<c:ComponentWrapper title="Payment">
+				<c:CardPayment/>
+             </c:ComponentWrapper>
+       </aside> 
+   	  
+   </section>
+    
+    
 </aura:component>

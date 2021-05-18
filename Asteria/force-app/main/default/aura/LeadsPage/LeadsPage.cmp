@@ -1,12 +1,15 @@
 <aura:component >
-       	
-            <c:ComponentWrapper title="REGISTER LEADS">
-            	<c:LeadCreate/>
-            </c:ComponentWrapper>
-   
-        <c:ComponentWrapper title="YOUR LEADS">
+    <section>
+    	<article>
+		<c:ComponentWrapper title="YOUR LEADS">
         	<c:LeadViewEdit/>
         </c:ComponentWrapper>
-   
-	
+    	</article>
+
+   		<aside>
+           	<c:ComponentWrapper title="REGISTER LEADS">
+            	<c:LeadCreate/>
+            </c:ComponentWrapper>
+    	</aside>
+    </section>
 </aura:component>

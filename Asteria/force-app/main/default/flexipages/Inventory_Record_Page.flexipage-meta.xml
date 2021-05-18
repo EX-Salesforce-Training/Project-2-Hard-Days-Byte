@@ -80,6 +80,11 @@
                 <fieldItem>Record.Weight__c</fieldItem>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Unit_Price__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-f842a274-ebaf-4cfa-aca2-238622fb2f36</name>
         <type>Facet</type>
     </flexiPageRegions>

@@ -1,0 +1,29 @@
+.THIS article{
+    width: 56%;
+    box-sizing:border-box;
+}
+.THIS aside{
+    width: 36%;
+    min-width: 320px;
+    box-sizing: border-box;
+}
+section.THIS {
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+@media only screen and (max-width:1000px){
+    .THIS aside{
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        order: 1;
+    }
+    
+    .THIS article {
+        width: 100%;
+        margin-right: 0;
+        order: 2;
+    }
+}

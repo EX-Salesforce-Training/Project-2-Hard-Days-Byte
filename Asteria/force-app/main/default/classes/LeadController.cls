@@ -10,8 +10,9 @@ public class LeadController {
     //method for retrieving list of leads
     @AuraEnabled
     public static List<Lead> getLeads() {
+        Id userId = AccountController.getUserID();
         List<Lead> myLeads =
-                [SELECT Id, Name, Phone, Email, Company FROM Lead];
+                [SELECT Id, Name, Phone, Email, Company FROM Lead WHERE ownerId = :userId];
         //Add isAccessible() check
         return myLeads;
     }

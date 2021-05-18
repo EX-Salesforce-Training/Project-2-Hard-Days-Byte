@@ -18,34 +18,34 @@
             <value>
                 <fullName>Clone</fullName>
                 <default>false</default>
-                <isActive>false</isActive>
                 <label>Clone</label>
             </value>
             <value>
                 <fullName>Clones</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>Clones</label>
             </value>
             <value>
                 <fullName>Material</fullName>
                 <default>false</default>
-                <isActive>false</isActive>
                 <label>Material</label>
             </value>
             <value>
                 <fullName>Materials</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>Materials</label>
             </value>
             <value>
                 <fullName>Order</fullName>
                 <default>false</default>
-                <isActive>false</isActive>
                 <label>Order</label>
             </value>
             <value>
                 <fullName>Orders</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>Orders</label>
             </value>
             <value>

@@ -1,2 +1,4 @@
-.THIS .feed-container {
+div.THIS .forceChatterFeedInner {
+   max-height: 500px;
+    overflow-y: scroll;
 }
