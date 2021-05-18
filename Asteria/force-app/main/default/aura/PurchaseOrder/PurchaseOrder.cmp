@@ -4,8 +4,8 @@
     <aura:registerEvent name="updateRes" type="c:updateItemReservation"/>
     <aura:registerEvent name="updateFeatured" type="c:UpdateFeaturedItems"/>
     <aura:registerEvent name="updateOrders" type="c:UpdatePurchaseOrders"/>
+    <aura:registerEvent name="updateCart" type="c:UpdateShoppingList"/>
     <aura:handler name="updateRes" action="{!c.doInit}"/>
-    <aura:handler event="c:AddInventory" action="{!c.addInventory}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="columns" type="List" />
     <aura:attribute name="orderColumns" type="List" />

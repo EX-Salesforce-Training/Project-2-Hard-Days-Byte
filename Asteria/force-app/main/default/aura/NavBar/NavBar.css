@@ -16,6 +16,10 @@
     font-size:40px;
     text-transform:uppercase;
 }*/
+
+.THIS h2 a {
+    font-size: 20px;
+}
 .THIS a {
     color:#f9e9ff;
     text-transform:uppercase;
@@ -25,7 +29,6 @@
 }
 .THIS.wrapper {
     width:100%;
-    min-height: 5vh;
     background-color: black;
     display: flex;
     justify-content: space-between;

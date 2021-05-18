@@ -1,15 +1,15 @@
 <aura:component >
 	<section>
     	<article>
-            <c:ComponentWrapper title="SALES GOALS">
-            </c:ComponentWrapper>
+            <c:AuraChatterPage />
         </article>
         <aside>
             <c:ComponentWrapper title="REGISTER LEADS">
+                <c:LeadCreate />
             </c:ComponentWrapper>
         </aside>
     </section>
-   	<section>
+    <section>
         <c:ComponentWrapper title="FEATURED ITEMS">
             	<c:FeaturedItems />
         </c:ComponentWrapper>

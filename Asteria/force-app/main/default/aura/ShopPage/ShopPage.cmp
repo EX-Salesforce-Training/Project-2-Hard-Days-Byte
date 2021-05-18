@@ -1,4 +1,5 @@
 <aura:component >
+    <aura:attribute name="shoppingList" type="List" />
 	<section>
     	<article>
             <c:ComponentWrapper title="FEATURED ITEMS">
@@ -7,7 +8,7 @@
         </article>
         <aside>
             <c:ComponentWrapper title="CART">
-            	<c:PurchaseOrder type="Cart" />
+            	<c:PurchaseOrder type="Cart" shoppingList="{!v.shoppingList}"/>
             </c:ComponentWrapper>
         </aside>
     </section>
