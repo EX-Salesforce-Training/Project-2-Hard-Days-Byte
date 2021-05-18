@@ -50,4 +50,19 @@
  - Activating the site will open it to for users
     - Move to Administration in the Workspace and click activate
 ## Setup Users
+
+- Go to Roles:
+ - Create Partner Manager Role under "CEO"
+ - Assign this role to yourself
 - From setup go to Digital Experience
+ - Enable Digital Experiences 
+ - Select Domain Name 
+- Settings: 
+ - Go to Members, select the Gold Partner User and Asteria Partner and move them to the selected box
+ - Allow using standard external profiles for self register, user creation and login 
+- Go to All Sites
+ - Create New: Choose Partner Central Template 
+- Create an Account 
+ - Click dropdown menu: Enable as Partner, Enable Partner Accounts and Create Partner Users 
+ - ## 
+- 
