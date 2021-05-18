@@ -50,4 +50,4 @@
  - Activating the site will open it to for users
     - Move to Administration in the Workspace and click activate
 ## Setup Users
-
+-From setup go to Digital Experience
