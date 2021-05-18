@@ -1,3 +1,15 @@
+<!--
+////////////////////////////////////////////////////
+//
+// Name: Asteria - Header
+// Author: David J. Sellinger
+// Created: 2021-05-13
+// Updated: 2021-05-13
+// Description: Header for Asteria DSM pages.
+//
+////////////////////////////////////////////////////
+-->
+
 <aura:component>
     <aura:attribute name="quote" type="String" default="QUOTE OF THE DAY" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />

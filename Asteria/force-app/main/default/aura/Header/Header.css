@@ -3,8 +3,8 @@
     min-height: 25vh;
    	background-image:url("/resource/HeaderImgFull");
     /*background-attachment:fixed;*/
-    background-size:1500px 600px;
-    background-position: center -375px;
+    background-size:100% 110%;
+    background-position: center center;
     background-repeat:no-repeat;
     background-color:#000;
     display: flex;
@@ -18,11 +18,10 @@
 .THIS .quoteWrapper {
     align-self: flex-end;
     width:40%;
-    padding-right: 10px;
     text-align:right;
+    padding-right: 10px;
     line-height:46px;
 }
-
 .THIS .quoteWrapper h3 {
     font-size: 24px;
 }
