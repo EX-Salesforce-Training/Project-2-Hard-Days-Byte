@@ -35,7 +35,7 @@ Project-2-Hard-Days-Byte.git in terminal
 # Work in org or on Visual Studio Code
  - While working on project in Visual Studio Code, consistently commit changes to branch
  - If working in the org, frequently retrieve data with "sfdx force:org:retrieve -x ./manifest/package.xml" for entire package or "sfdx force:org:retrieve -x ./manifest/Individual-Manifest.xml" for specific extraction of your edited files and commit to branch
-   push to repository frequently to track progress
+   push, to repository frequently to track progress
 
 # Pull Request
  - Confirm all changes are ready for deployment
