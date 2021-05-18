@@ -11,8 +11,7 @@
 
 # Clone Main Branch
  
- - run git clone git@github.com:EX-Salesforce-Training/
-Project-2-Hard-Days-Byte.git in terminal
+ - run git clone git@github.com:EX-Salesforce-Training/Project-2-Hard-Days-Byte.git in terminal
 
 # Branch on Local
 
