@@ -39,7 +39,7 @@ public class AccountTest {
             CardPayment__c accountPayment = new CardPayment__c();
             accountPayment.account__c = currentUserAccountid;
             insert accountPayment;
-         	 System.assertEquals(accountPayment.id,AuraPaymentController.getAccountPayment());
+         	System.assertEquals(accountPayment.id,AuraPaymentController.getAccountPayment());
             System.assertEquals(currentUserAccountid,AuraAccountController.getAccountID());
            
         }

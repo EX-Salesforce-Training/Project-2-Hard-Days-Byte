@@ -33,10 +33,13 @@ public class PaymentTest {
         
         Database.insert(partnerUser); 
         System.runAs(partnerUser){
-            //Id currentUserAccount = AuraAccountController.getAccountPayment();
-           // Id currentUserID = UserInfo.getUserId();
-       		//Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
-           //System.assertEquals(currentUserAccountid, currentUserAccount);
+           List<CardPayment__c> cardPayments = new List<CardPayment__c>();
+            Id currentUserID = UserInfo.getUserId();
+       		Id currentUserAccountid = [SELECT accountId FROM User WHERE id=:currentUserId].accountId;
+            CardPayment__c accountPayment = new CardPayment__c();
+            accountPayment.account__c = currentUserAccountid;
+            insert accountPayment;
+         	System.assertEquals(accountPayment.id,AuraPaymentController.getAccountPayment());
            
         }
     }

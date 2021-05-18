@@ -9,7 +9,6 @@
         <lightning:datatable data="{!v.mydata}"
         					 columns="{!v.mycolumns}"
         					 keyField="Id"
-        					 hideCheckboxColumn="true"
-                             onsave="{!c.handleSave}"/>
+        					 hideCheckboxColumn="true"/>
     </div>
 </aura:component>

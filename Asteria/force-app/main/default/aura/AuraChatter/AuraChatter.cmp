@@ -1,10 +1,10 @@
 <aura:component implements="force:appHostable">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="options" type="List" />
-    <aura:attribute name="type" type="String" default="To" description="The type of feed" access="GLOBAL"/>
+    <aura:attribute name="type" type="String" default="To"  access="GLOBAL"/>
     <aura:attribute name="types" type="String[]"
                     default="Bookmarks,Company,DirectMessages,Feeds,Groups,Home,News,Record,To,Topics,UserProfile"
-                    description="A list of feed types"/>
+                    />
     <h3>My Feeds</h3>
     <lightning:select aura:id="typeSelect" onchange="{!c.onChangeType}" label="Type" name="typeSelect">
         <aura:iteration items="{!v.options}" var="item">

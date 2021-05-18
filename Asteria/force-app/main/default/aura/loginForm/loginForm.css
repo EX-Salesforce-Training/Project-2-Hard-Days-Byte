@@ -101,3 +101,7 @@
 .THIS label.uiLabel-hidden {
     display:none;
 }
+
+.THIS.loginWrapper {
+    padding: 20px;
+}

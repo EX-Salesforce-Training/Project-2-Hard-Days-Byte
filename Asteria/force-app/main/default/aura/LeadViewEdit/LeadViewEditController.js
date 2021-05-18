@@ -10,9 +10,9 @@
         ]);
         helper.getData(component);
     },
-    handleSave: function (component, event, helper) {
+    /*handleSave: function (component, event, helper) {
         //component.set('v.saveDraftValues', event.getParam('draftValues'));
         //let draftValues = event.getParam('draftValues');
         helper.saveHelp(component, event);
-    }
+    }*/
 })

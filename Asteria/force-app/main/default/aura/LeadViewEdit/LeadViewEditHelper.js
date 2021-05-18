@@ -12,7 +12,7 @@
         $A.enqueueAction(method);
     },
     
-    saveHelp : function(component, event){
+    /*saveHelp : function(component, event){
         let draftValues = event.getParam('draftValues');
         console.log(draftValues);
         let method = component.get('c.updateLeadEdit');
@@ -31,5 +31,5 @@
             }
         });
         $A.enqueueAction(method);
-    }
+    }*/
 });
