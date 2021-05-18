@@ -1,7 +1,7 @@
 <aura:component >
 	<section>
     	<article>
-            <c:ComponentWrapper title="CHATTER FEED">
+            <c:ComponentWrapper title="SALES GOALS">
             </c:ComponentWrapper>
         </article>
         <aside>

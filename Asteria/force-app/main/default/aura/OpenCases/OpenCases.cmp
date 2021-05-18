@@ -1,108 +1,28 @@
-<!--
-////////////////////////////////////////////////////
-//
-// Name: Asteria - Open Cases Component
-// Author: David J. Sellinger
-// Created: 2021-05-07
-// Updated: 2021-05-16
-// Description: Shows customer three latest open
-//				cases and allows them to see all of
-//				their open cases if they so wish
-//
-////////////////////////////////////////////////////
--->
-
 <aura:component controller="SupportController">
     <aura:attribute name="caseList" type="Case[]" />
-    <aura:attribute name="allCases" type="Case[]" />
-    <aura:attribute name="isOpen" type="boolean" default="false" />
-    <aura:handler event="c:UpdateCaseList" action="{!c.UpdateCases}" />
-    <aura:handler name="init" value="{!this}" action="{!c.DoInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.FetchCaseList}" />
     
-    <table width="100%">
-        <aura:iteration items="{!v.caseList}" var="case">
-            <tr>
-                <td class="fieldLabel">Case Number:</td>
-                <td>{!case.CaseNumber}</td>
-            </tr>
-            <tr>
-                <td class="fieldLabel">Case Subject:</td>
-                <td>{!case.Subject}</td>
-            </tr>
-            <tr>
-                <td class="fieldLabel">Product:</td>
-                <td>{!case.Product__c}</td>
-            </tr>
-            <tr>
-                <td class="fieldLabel lastRow">Status:</td>
-                <td>
+    <aura:iteration items="{!v.caseList}" var="case">
+        <lightning:recordViewForm recordId="{!case.Id}" objectApiName="Case">
+            <div class="grid">
+                <div class="gridLeft fieldLabel">
+                    Case Number:<br />
+                    Case Subject:<br />
+                    Product:<br />
+                    Status:
+                </div>
+                <div class="gridRight">
+                    {!case.CaseNumber}<br />
+                    {!case.Subject}<br />
+                    {!case.Product__c}<br />
                     <aura:if isTrue="{!case.IsClosed}">
                         Closed
                         <aura:set attribute="else">
-                            Open
+                        	Open
                         </aura:set>
                     </aura:if>
-                </td>
-            </tr>
-        </aura:iteration>
-        <tr>
-            <td colspan="2"><button value="View All Cases" id="viewCasesButton" onclick="{!c.ShowModal}">Show All Cases</button></td>
-        </tr>
-    </table>
-    
-    <!--       MODAL       -->
-    <aura:if isTrue="{!v.isOpen}">
-        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-                
-                <!--       MODAL HEADER       -->
-                <header class="slds-modal__header">
-                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.CloseModal}" alternativeText="Close" variant="bare-inverse" class="slds-modal__close" />
-                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">ALL OPEN CASES</h2>
-                </header>
-                <!--////// MODAL HEADER //////-->
-                
-                <!--       MODAL BODY       -->
-                <div class="slds-modal__content" id="modal-content-id-1">
-                    <table width="100%">
-                        <aura:iteration items="{!v.allCases}" var="case">
-                            <tr>
-                                <td class="fieldLabel">Case Number:</td>
-                                <td>{!case.CaseNumber}</td>
-                            </tr>
-                            <tr>
-                                <td class="fieldLabel">Case Subject:</td>
-                                <td>{!case.Subject}</td>
-                            </tr>
-                            <tr>
-                                <td class="fieldLabel">Product:</td>
-                                <td>{!case.Product__c}</td>
-                            </tr>
-                            <tr>
-                                <td class="fieldLabel lastRow">Status:</td>
-                                <td>
-                                    <aura:if isTrue="{!case.IsClosed}">
-                                        Closed
-                                        <aura:set attribute="else">
-                                            Open
-                                        </aura:set>
-                                    </aura:if>
-                                </td>
-                            </tr>
-                        </aura:iteration>
-                    </table>
                 </div>
-                <!--////// MODAL BODY //////-->
-                
-                <!--       MODAL FOOTER       -->
-                <footer class="slds-modal__footer">
-                    <lightning:button variant="brand" label="Close" title="Close" onclick="{!c.CloseModal}" />
-                </footer>
-                <!--////// MODAL FOOTER //////-->
-                
             </div>
-        </section>
-        <div class="slds-backdrop slds-backdrop_open"></div>
-    </aura:if>
-    <!--////// MODAL //////-->
+        </lightning:recordViewForm>
+    </aura:iteration>
 </aura:component>
