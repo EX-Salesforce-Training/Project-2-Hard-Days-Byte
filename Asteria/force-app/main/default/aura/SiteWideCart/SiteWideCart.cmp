@@ -1,0 +1,8 @@
+<aura:component access="global" >
+    <aura:attribute name="shoppingList" type="List"/>
+	<lightning:accordion class="shoppingCart" allowMultipleSectionsOpen="true">
+        <lightning:accordionSection name="A" label="SHOPPING CART">
+            <c:PurchaseOrder type="Cart" shoppingList="{!v.shoppingList}"/>
+        </lightning:accordionSection>
+    </lightning:accordion>
+</aura:component>

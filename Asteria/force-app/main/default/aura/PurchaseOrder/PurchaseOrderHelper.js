@@ -55,34 +55,15 @@
         })
       	$A.enqueueAction(getPurchaseOrders);
 	},
-    
-    addInventory : function(component, event){
-    	const eventInventory = event.getParam("inventory");
-        const shoppingList = component.get("v.shoppingList");
-        if(!shoppingList.some(inv => inv.Id === eventInventory.Id)){
-         	eventInventory.iconName = 'utility:delete';
-        	eventInventory.buttonName = 'Delete';
-            eventInventory.iconClass = 'black'
-        	shoppingList.push(eventInventory);
-        	component.set("v.shoppingList", shoppingList);
-        }else{
-            let toastEvent = $A.get("e.force:showToast");
-        	toastEvent.setParams({
-            	"title":"Error",
-                "type":"error",
-            	"message":"Item already added to Cart!"
-        	});
-        	toastEvent.fire();
-        }                  
-    },
     deleteCartItem : function(component, event){
         const shoppingList = component.get('v.shoppingList');
         const action = event.getParam('action');
         const row = event.getParam('row');
         if(row.buttonName === 'Delete'){
         	const filteredList = shoppingList.filter(inv => inv.Id !== row.Id);
-        	component.set('v.shoppingList', filteredList);
-        
+            const updateList = $A.get("e.c:UpdateShoppingList");
+            updateList.setParams({"shoppingList":filteredList});
+            updateList.fire();
         	let toastEvent = $A.get("e.force:showToast");
         	toastEvent.setParams({
             	"title":"Success!",
@@ -108,7 +89,9 @@
                 	inv.buttonName = 'Error';
                     inv.iconClass = 'error';
                 })
-                component.set("v.shoppingList", shoppingList);
+                const updateList = $A.get("e.c:UpdateShoppingList");
+            	updateList.setParams({"shoppingList":shoppingList});
+            	updateList.fire();
                 const updateInventory = $A.get('e.c:UpdateInventory');
                 updateInventory.fire();
                 const updateReservations = component.getEvent("updateRes");

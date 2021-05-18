@@ -51,7 +51,7 @@ public without sharing class AuraStoreController {
     @AuraEnabled
     public static Map<String, List<Purchase_Orders__c>> getPurchaseOrdersByType(){
         Id userAcct = getAccountID();
-        List<Purchase_Orders__c> queryOrders = [SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Status__c FROM Purchase_Orders__c WHERE Account__c = :userAcct];
+        List<Purchase_Orders__c> queryOrders = [SELECT Id, Name, Account__c, Inventory__c, Inventory_Type__c, Inventory_Weight__c, Inventory__r.Item_Price_Text__c, Inventory__r.Mining_Site_List__c, Status__c FROM Purchase_Orders__c WHERE Account__c = :userAcct];
         Map<String, List<Purchase_Orders__c>> ordersByType = new Map<String, List<Purchase_Orders__c>>();
         for(Purchase_Orders__c order:queryOrders){
             if(ordersByType.containskey(order.Status__c)){

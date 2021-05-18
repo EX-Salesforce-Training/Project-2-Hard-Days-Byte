@@ -18,6 +18,11 @@
 .THIS .quoteWrapper {
     align-self: flex-end;
     width:40%;
-    text-align:center;
+    padding-right: 10px;
+    text-align:right;
     line-height:46px;
+}
+
+.THIS .quoteWrapper h3 {
+    font-size: 24px;
 }

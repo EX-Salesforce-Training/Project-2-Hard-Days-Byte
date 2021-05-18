@@ -9,6 +9,7 @@ section.THIS {
 }
 
 .THIS aside {
+    margin-left: 5px;
     width: 34%;
     min-width: 350px;
 }
