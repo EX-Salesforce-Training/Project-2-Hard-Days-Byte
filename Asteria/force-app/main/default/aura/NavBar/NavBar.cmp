@@ -25,7 +25,7 @@
                 <tr>
                     <td><h2><a onclick="{!c.handleClick}">Home</a></h2></td>
                     <td><h2><a onclick="{!c.handleClick}">Account</a></h2></td>
-                    <td><h2><a onclick="{!c.handleClick}">Client</a></h2></td>
+                    <td><h2><a onclick="{!c.handleClick}">Lead</a></h2></td>
                     <td><h2><a onclick="{!c.handleClick}">Shop</a></h2></td>
                     <td><h2><a onclick="{!c.handleClick}">Support</a></h2></td>
                 </tr>
