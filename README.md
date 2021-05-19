@@ -16,7 +16,7 @@
  - Github
  - Salesforce Developer Experience CLI and Visual Studio Code Extension
 
-[Documentation]('https://github.com/EX-Salesforce-Training/Project-2-Hard-Days-Byte/wiki/Documentation')
+[Documentation](https://github.com/EX-Salesforce-Training/Project-2-Hard-Days-Byte/wiki/Documentation)
 
 ## Setup
 
